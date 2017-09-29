@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body, html{
+    /*background-color: #9c27b0;*/
+    background-color: #563d7c;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+#main-nav{
+    background-color: #303030;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                                    HOME                                     */
+/*-----------------------------------------------------------------------------*/
+#titulo{
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 56px;
+}
