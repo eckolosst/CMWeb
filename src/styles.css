@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/*@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';*/
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 body, html{
     /*background-color: #9c27b0;*/
-    background-color: #563d7c;
+    /*background-color: #563d7c;*/
     font-family: 'Roboto', sans-serif;
     color: white;
 }
@@ -18,4 +19,11 @@ body, html{
     font-size: 42px;
     font-weight: 300;
     line-height: 56px;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                                    LOGIN                                    */
+/*-----------------------------------------------------------------------------*/
+.form-card{
+    width: 50%;
 }
