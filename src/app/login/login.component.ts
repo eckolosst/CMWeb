@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserComponent } from '../user/user.component';
 import { UserService } from '../services/user.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormControlDirective, Validators } from '@angular/forms';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -15,13 +15,12 @@ export class LoginComponent {
     public user = new UserComponent('','');
     public errorMsg = '';
     public email;
-    rForm: FormGroup;
+    public emailFC = new FormControl('',[
+        Validators.required,
+        Validators.pattern(EMAIL_REGEX)
+    ]);
 
-    constructor(private _service:UserService, private fb:FormBuilder) {
-        this.rForm = fb.group({
-            'email':[null,Validators.required]
-        });
-    }
+    constructor(private _service:UserService) {    }
 
     login() {
         if(!this._service.login(this.user)) {

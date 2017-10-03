@@ -12,16 +12,14 @@
         <md-card-content>
             <form >
                 <md-form-field style="width:100%">
-                    <input type="email" mdInput placeholder="Email" >
-                    <!-- <md-error *ngIf="emailFormControl.hasError('pattern')">
-                        Please enter a valid email address
-                    </md-error>
-                    <md-error *ngIf="emailFormControl.hasError('required')">
-                        Email is <strong>required</strong>
-                    </md-error> -->
+                    <input type="email" mdInput placeholder="Email" [formControl]="emailFC">
+                    <md-error *ngIf="emailFC.hasError('pattern')"> Please enter a valid email address </md-error>
+                    <md-error *ngIf="emailFC.hasError('required')"> Email is <strong>required</strong> </md-error>
+                </md-form-field>
+                <md-form-field>
                     <input type="password"mdInput placeholder="Password">
                 </md-form-field>
-            </form> -->
+            </form>
         </md-card-content>
     </md-card>
 </div>
