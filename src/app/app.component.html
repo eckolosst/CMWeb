@@ -1,6 +1,14 @@
 <md-toolbar color="primary">
-  <span>Custom Toolbar</span>
+    <img src="assets/icono.png" alt="" routerLink='/home'>
+    <span class="example-spacer"></span>
+    <button md-raised-button color="basic" routerLink='/login'>Iniciar Sesión</button>
 </md-toolbar>
 
+<router-outlet></router-outlet>
 
-    <!-- <router-outlet></router-outlet> -->
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">MuMaLá</p>
+        
+      </div>
+</footer>

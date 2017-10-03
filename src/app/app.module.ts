@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 
 // Angular Material
-import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule } from '@angular/material';
+import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,10 @@ import { MatToolbarModule, MatInputModule, MatCardModule, MatButtonModule } from
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
-    MatInputModule,
+    MdToolbarModule,
+    MdInputModule,
+    MdCardModule,
+    MdButtonModule,
     routing
   ],
   providers: [appRoutingProviders],
