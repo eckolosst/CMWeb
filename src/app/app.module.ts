@@ -3,23 +3,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MdIconModule } from '@angular/material';
-
-
+//import { QuillModule } from 'ngx-quill';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { MainComponent } from './main/main.component';
 
 // Angular Material
-import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule } from '@angular/material';
+import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule, MdIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +30,8 @@ import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule } from '@a
     MdInputModule,
     MdCardModule,
     MdButtonModule,
+    MdIconModule,
+    //QuillModule,
     routing
   ],
   providers: [appRoutingProviders],

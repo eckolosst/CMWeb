@@ -22,7 +22,6 @@ export class LoginComponent {
         private _service:UserService,
         private _route: ActivatedRoute,
         private _router: Router) {}
-
     login() {
         if(!this._service.login(this.user)) {
             this.errorMsg = 'Falla en la autentificación! Intente nuevamente...';
