@@ -1,4 +1,15 @@
 <div style="text-align:center">
+    <md-sidenav-container class="example-container">
+        <md-sidenav #sidenav class="example-sidenav">
+            Jolly good!
+        </md-sidenav>
+        <div class="example-sidenav-content">
+            <button type="button" md-button (click)="sidenav.open()">
+                Open sidenav
+            </button>
+        </div>
+    </md-sidenav-container>
+
     <h1 id="titulo">
         Panel Principal
     </h1>
