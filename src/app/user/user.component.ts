@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class UserComponent {
-    constructor(public username: string, public password: string) { }
+    constructor(public email: string, public password: string) { }
 
     ngOnInit() {
     }

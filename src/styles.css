@@ -35,5 +35,11 @@ flex: 1 1 auto;
 /*                                    LOGIN                                    */
 /*-----------------------------------------------------------------------------*/
 .form-card{
-    width: 50%;
+    
+}
+.campoForm{
+    width: 100% !important;
+}
+#subButton{
+    margin-top:10px;
 }

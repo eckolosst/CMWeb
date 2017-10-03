@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { MainComponent } from './main/main.component';
 // import { ErrorComponent } from './error/error.component';
 
 //Definimos el arreglo qye relaciona el path con el componente que llama
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
    {path: 'home',component: HomeComponent},
    {path: 'login',component: LoginComponent},
    {path: 'user',component: UserComponent},
+   {path: 'main',component: MainComponent},
    // {path: '**',component: ErrorComponent}
 ];
 

@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MdIconModule } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
