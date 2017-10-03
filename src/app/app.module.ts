@@ -3,9 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { QuillModule } from 'ngx-quill';
-
-
+//import { QuillModule } from 'ngx-quill';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -33,7 +31,7 @@ import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule, MdIconMod
     MdCardModule,
     MdButtonModule,
     MdIconModule,
-    QuillModule,
+    //QuillModule,
     routing
   ],
   providers: [appRoutingProviders],

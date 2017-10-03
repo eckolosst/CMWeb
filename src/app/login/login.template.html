@@ -1,4 +1,5 @@
-<div ng-app="LoginForm">
+<br>
+<div class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3">
     <md-card class="form-card">
         <!-- <md-toolbar>
             <div class="md-toolbar-tools">
@@ -7,18 +8,23 @@
         </md-toolbar> -->
         <md-card-header>
             <md-card-title>Login Form</md-card-title>
-            <!-- <md-card-subtitle>Complete con sus datos</md-card-subtitle> -->
         </md-card-header>
         <md-card-content>
-            <form >
-                <md-form-field style="width:100%">
-                    <input type="email" mdInput placeholder="Email" [formControl]="emailFC">
-                    <md-error *ngIf="emailFC.hasError('pattern')"> Please enter a valid email address </md-error>
-                    <md-error *ngIf="emailFC.hasError('required')"> Email is <strong>required</strong> </md-error>
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+                <md-form-field class="campoForm">
+                    <input type="email" mdInput placeholder="Email" [formControl]="emailFC"
+                    [(ngModel)]="user.email">
+                    <md-error *ngIf="emailFC.hasError('pattern')">Please enter a valid email address</md-error>
+                    <md-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></md-error>
                 </md-form-field>
-                <md-form-field>
-                    <input type="password"mdInput placeholder="Password">
+                <md-form-field class="campoForm">
+                    <input type="password"mdInput placeholder="Password"[formControl]="passFC"
+                    [(ngModel)]="user.password">
+                    <md-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></md-error>
                 </md-form-field>
+                <button type="submit" md-raised-button color="primary" id="subButton"
+                 [disabled]="loginForm.invalid">Aceptar</button>
+
             </form>
         </md-card-content>
     </md-card>
