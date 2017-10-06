@@ -25,7 +25,7 @@ export class LoginComponent {
     login() {
         if(!this._service.login(this.user)) {
             this.errorMsg = 'Falla en la autentificación! Intente nuevamente...';
-            this._router.navigate(['/main'],{ skipLocationChange: true});
+            this._router.navigate(['/main']);
         }
 
     }

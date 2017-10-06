@@ -1,16 +1,46 @@
-<div style="text-align:center">
-    <md-sidenav-container class="example-container">
-        <md-sidenav #sidenav class="example-sidenav">
-            Jolly good!
+<div id="main-container">
+    <md-sidenav-container class="example-sidenav-fab-container">
+        <md-sidenav mode="side" opened="true">
+            <div class="example-scrolling-content text-left">
+                <md-nav-list>
+                  <p md-subheader style="background: rgba(0,0,0,.32); color: hsla(0,0%,100%,.87); letter-spacing: 1px;
+line-height: 24px;
+text-transform: uppercase;">Secciones:</p>
+                  <div *ngFor="let seccion of secciones; let i = index">
+                      <md-divider></md-divider>
+                      <md-list-item class="item-seccion" (click)="llenar(i)">
+                          <p>{{seccion.title}}</p>
+                      </md-list-item>
+                  </div>
+              </md-nav-list>
+            </div>
         </md-sidenav>
-        <div class="example-sidenav-content">
-            <button type="button" md-button (click)="sidenav.open()">
-                Open sidenav
-            </button>
+
+        <div *ngIf="seleccion == -1">
+            <h3>Panel Principal</h3>
+        </div>
+
+        <div *ngIf="seleccion > -1" class="example-scrolling-content">
+            <h3>Sección: {{title}}</h3>
+            <br>
+            <div class="col-md-8 col-md-offset-2">
+                <form (ngSubmit)="setSeccion()" #mainForm="ngForm">
+                    <md-form-field class="campoForm">
+                        <input type="text" mdInput placeholder="Título de la Sección" [formControl]="titleFC"
+                               [(ngModel)]="title" required>
+                        <md-error *ngIf="titleFC.hasError('required')">Campo <strong>necesario</strong></md-error>
+                    </md-form-field>
+                    <br>
+                    <br>
+                    <p id="title-editor" class="text-left">Contenido de la Sección</p>
+                    <quill-editor [formControl]="seccionFC" [(ngModel)]="description" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
+                                  [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
+                    </quill-editor>
+                    <button type="submit" md-raised-button color="primary" id="subButton"
+                     [disabled]="mainForm.invalid">Aceptar</button>
+                </form>
+                <br>
+            </div>
         </div>
     </md-sidenav-container>
-
-    <h1 id="titulo">
-        Panel Principal
-    </h1>
 </div>
