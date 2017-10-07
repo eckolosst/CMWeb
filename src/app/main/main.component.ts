@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
 import { Router, ActivatedRoute} from '@angular/router'
 import { FormControl, FormControlDirective, Validators } from '@angular/forms';
+import { MdSnackBar, MdSnackBarHorizontalPosition, MdSnackBarVerticalPosition, MdSnackBarConfig } from '@angular/material';
+declare var $: any;
+
 
 @Component({
    selector: 'main',
@@ -13,13 +16,15 @@ export class MainComponent {
         public seleccion = -1;
         public errorMsg = '';
         public title: String;
+        public titleFijo: String;
         public description: String;
         public titleFC = new FormControl('', [Validators.required]);
         public seccionFC = new FormControl('', [Validators.required]);
 
         constructor(
             private _route: ActivatedRoute,
-            private _router: Router
+            private _router: Router,
+            public snackBar: MdSnackBar
         ){
             this.secciones = [
                 {
@@ -52,7 +57,7 @@ export class MainComponent {
                 },
                 {
                     "title": "Sé Protagonista",
-                    "description": ''
+                    "description": '<p>Compartimos esta App porque queremos aportar en la construcción de una vida libre de violencia de género. Si la bajaste en tu dispositivo, si la encontraste en nuestro blog y te interesó su contenido, habremos dado un paso más para alcanzar el objetivo de construir una sociedad más justa. </p><p>Te invitamos a que difundas esto que nos une. Y te convocamos a que formes parte también del proceso colectivo de transformación de nuestra realidad. Hay mucho por hacer para lograr la igualdad de derechos, para alcanzar una verdadera equidad de género que se traduzca en una justa distribución de responsabilidades, poder y recursos. </p><p>Luchemos juntas por las libertades que nos faltan! </p><p>Porque necesitamos la <strong>URGENTE </strong>declaración de “Emergencia Nacional por la No Violencia hacia las mujeres”. </p><p>Para que todas las instituciones que intervienen ante una situación de violencia de género –Salud, Policía, Justicia, Asistencia Social estén capacitadas para hacerlo. </p><p>Para que se elabore un registro oficial de situaciones de violencia y sus consecuencias, para poder a partir de estadísticas, realizar diseños de políticas públicas que realmente aborden el problema. </p><p>Para que se realicen campañas comunicacionales de prevención y sensibilización. El Estado debe darnos mensajes claros sobre la violencia de género.</p><p>Para que se incluya en el proceso de transformación al varón, desnaturalizando comportamientos violentos o potencialmente violentos, y buscando la construcción de nuevas masculinidades. </p><p>Ciudad Mujer Protagonista nos ha encontrado, te invitamos a que nos contactes y sumes vos también tus ganas de vivir una vida sin violencia. Por vos, por nosotras, por todas! </p><p><strong>CONTACTO: </strong>mumalanqn@gmail.com</p><p><strong>Facebook:</strong> Mumalá Neuquén Capital</p>'
                 },
                 {
                     "title": "Síntomas de la Violencia",
@@ -75,11 +80,27 @@ export class MainComponent {
         }
         setSeccion() {
             console.log(this.description);
-            this._router.navigate(['/home']);
+            this.seleccion = -1;
+            this.snackBar.open("Sección  "+this.titleFijo.toUpperCase()+"  actualizada con éxito!", null,{
+              duration: 4000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+              extraClasses: ['success-snackbar']
+            });
+
+            // Transformación String a HTML (para APP - NO BORRAR TODAVIA)
+            // var $hs = $( "#hs" );
+            // var htmlString = $.parseHTML( this.description );
+            // $hs.append( htmlString );
         }
         llenar(i){
             this.seleccion = i;
             this.title=this.secciones[i].title;
+            this.titleFijo=this.secciones[i].title;
             this.description=this.secciones[i].description
+        }
+
+        back(){
+            this.seleccion = -1;
         }
 }

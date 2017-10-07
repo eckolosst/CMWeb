@@ -7,7 +7,22 @@ body, html{
     color: white !important;
 }
 h3{
-    font-size: 28px !important;
+    font-size: 34px !important;
+}
+#menu{
+    margin: 15px 10px 0px 0px
+}
+#menu li{
+    display: inline;
+    margin: 5px 5px;
+}
+#menu a{
+    color: #707a88;
+    text-decoration: none;
+}
+#menu img{
+    height: 30px;
+    width: 30px;
 }
 #main-nav{
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
@@ -21,13 +36,18 @@ h3{
     width: 100%;
     height: 10%;
     background-color: #7b1fa2;
-    padding-top: 18px
+    /*padding-top: 18px;*/
 }
 .footer div p{
     color: #c0c0c0;
 }
 .icon-log{
     margin-right: 5px;
+}
+.img-footer{
+    float:right;
+    padding: 6px;
+    height: 100%;
 }
 /*-----------------------------------------------------------------------------*/
 /*                                    HOME                                     */
@@ -37,7 +57,6 @@ h3{
     font-weight: 300;
     line-height: 56px;
 }
-
 /*-----------------------------------------------------------------------------*/
 /*                                    LOGIN                                    */
 /*-----------------------------------------------------------------------------*/
@@ -47,12 +66,9 @@ h3{
 #subButton{
     margin-top:10px;
 }
-
-
 /*-----------------------------------------------------------------------------*/
 /*                                      MAIN                                   */
 /*-----------------------------------------------------------------------------*/
-
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -60,13 +76,11 @@ h3{
     padding: 8px;
     background-color: white;
 }
-
 #main-container{
     position: absolute;
     height: 79.5%;
     width: 100%
 }
-
 .example-sidenav-fab-container {
     /*border: 1px solid rgba(0, 0, 0, 0.5);*/
     /*height: 492px;
@@ -74,18 +88,15 @@ h3{
     height: 100%;
     text-align:center;
 }
-
 .example-sidenav-fab-container md-sidenav {
     text-align:center;
     max-width: 100%
 }
-
 .example-sidenav-fab-container .mat-sidenav-content,
 .example-sidenav-fab-container md-sidenav {
     display: flex;
     overflow: visible;
 }
-
 .example-scrolling-content {
     overflow: auto;
     height: 100%;
@@ -95,4 +106,33 @@ h3{
 }
 #title-editor{
     color: rgba(255,255,255,.7)
+}
+.instrucciones{
+    margin-top: 25px;
+    font-size: 18px;
+}
+.instrucciones ol li{
+    margin-top: 15px;
+}
+.success-snackbar{
+    background-color: #424242 !important;
+    color: white !important;
+    font-style: oblique;
+}
+.sin-style{
+    list-style: none;
+    margin-left: -40px;
+}
+.sin-style ul{
+    font-variant: small-caps;
+}
+.sin-style li{
+    margin-left: -20px;
+}
+.editor-gly{
+    margin-top: -5px;
+    margin-right: 5px
+}
+.sub{
+    text-decoration: underline;
 }

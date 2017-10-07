@@ -11,7 +11,14 @@ import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
 
 // Angular Material
-import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule, MdIconModule, MdSidenavModule, MdListModule } from '@angular/material';
+import { MdToolbarModule,
+         MdInputModule,
+         MdCardModule,
+         MdButtonModule,
+         MdIconModule,
+         MdSidenavModule,
+         MdListModule,
+         MdSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,6 +40,7 @@ import { MdToolbarModule, MdInputModule, MdCardModule, MdButtonModule, MdIconMod
     MdIconModule,
     MdSidenavModule,
     MdListModule,
+    MdSnackBarModule,
     QuillModule,
     routing
   ],

@@ -17,11 +17,42 @@ text-transform: uppercase;">Secciones:</p>
         </md-sidenav>
 
         <div *ngIf="seleccion == -1">
-            <h3>Panel Principal</h3>
+            <h3 class="sub">Panel Principal</h3>
+            <div class="col-md-8 col-md-offset-2 text-left instrucciones">
+                <ol>
+                    <li>Seleccionar sección que desea modificar.</li>
+                    <li>Editar título.</li>
+                    <li>Editar contenido de la sección.
+                        <ul>
+                            <li class="col-md-4">TIPOGRAFÍA<br>
+                                <ul class="sin-style">
+                                    <li><span><md-icon class="icon-log pad">format_bold</md-icon> Negrita</span></li>
+                                    <li><md-icon class="icon-log pad">format_italic</md-icon> Cursiva</li>
+                                    <li><md-icon class="icon-log pad">format_underline</md-icon> Subrayado</li>
+                                    <li><md-icon class="icon-log pad">strikethrough_s</md-icon> Tachado</li>
+                                </ul>
+                            </li>
+                            <li class="col-md-4">LISTAS
+                                <ul class="sin-style">
+                                    <li><md-icon class="icon-log pad">format_list_bulleted</md-icon> Numerada</li>
+                                    <li><md-icon class="icon-log pad">format_list_numbered</md-icon> No Numerada</li>
+                                </ul>
+                            </li>
+                            <li class="col-md-4">MULTIMEDIA
+                                <ul class="sin-style">
+                                    <li><span class="glyphicon glyphicon-link editor-gly"></span> Enlace Web</li>
+                                    <li><span class="glyphicon glyphicon-picture editor-gly"></span> Imagen</li>
+                                    <li><span class="glyphicon glyphicon-film editor-gly"></span> Video</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
         </div>
 
         <div *ngIf="seleccion > -1" class="example-scrolling-content">
-            <h3>Sección: {{title}}</h3>
+            <h3>Sección: {{titleFijo}}</h3>
             <br>
             <div class="col-md-8 col-md-offset-2">
                 <form (ngSubmit)="setSeccion()" #mainForm="ngForm">
@@ -38,6 +69,7 @@ text-transform: uppercase;">Secciones:</p>
                     </quill-editor>
                     <button type="submit" md-raised-button color="primary" id="subButton"
                      [disabled]="mainForm.invalid">Aceptar</button>
+                    <button (click)="back()" md-raised-button color="primary" id="backButton">Volver</button>
                 </form>
                 <br>
             </div>

@@ -1,15 +1,21 @@
 <md-toolbar id="main-nav" color="primary">
-    <img src="assets/icono.png" alt="" routerLink='/home'>
+    <img class="img-footer" src="assets/mumala3.png" routerLink='/home'>
     <span class="example-spacer"></span>
-    <button md-raised-button color="basic" routerLink='/login'>
+    <button *ngIf="!logueado" (click)="logIn()" md-raised-button color="basic" routerLink='/login'>
         <md-icon class="icon-log">account_circle</md-icon>Iniciar Sesión
+    </button>
+    <button *ngIf="logueado" (click)="logOut()" md-raised-button color="basic" routerLink='/home'>
+        <md-icon class="icon-log">close</md-icon>Cerrar Sesión
     </button>
 </md-toolbar>
 
 <router-outlet></router-outlet>
 
 <footer class="footer">
-      <div class="container">
-        <p class="text-muted">MuMaLá</p>
-      </div>
+    <ul id="menu" class="pull-right">
+        <li><b>Contactanos: </b></li>
+        <li><a href="https://twitter.com/mumalacap" target="_blank"><img src="assets/footer/tw-mn.png"></a></li>
+        <li><a href="http://mumalaneuquen.blogspot.com.ar/" target="_blank"><img src="assets/footer/bg-mn.png"></a></li>
+        <li><a href="https://www.facebook.com/MumalaNeuquenCapital/" target="_blank"><img src="assets/footer/fb-mn.png"></a></li>
+    </ul>
 </footer>
