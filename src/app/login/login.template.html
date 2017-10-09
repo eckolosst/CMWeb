@@ -1,19 +1,14 @@
 <br>
 <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
     <md-card class="form-card">
-        <!-- <md-toolbar>
-            <div class="md-toolbar-tools">
-                <h2><span>Login Form</span></h2>
-            </div>
-        </md-toolbar> -->
         <md-card-header>
             <md-card-title>Inicio de sesión</md-card-title>
         </md-card-header>
         <md-card-content>
-            <form (ngSubmit)="login()" #loginForm="ngForm" name="loginForm">
+            <form (ngSubmit)="login()">
                 <md-form-field class="campoForm">
                     <input type="email" mdInput placeholder="Email" [formControl]="emailFC"
-                    [(ngModel)]="user.email">
+                    [(ngModel)]="user.email" >
                     <md-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</md-error>
                     <md-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></md-error>
                 </md-form-field>
@@ -23,8 +18,9 @@
                     <md-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></md-error>
                 </md-form-field>
                 <button type="submit" md-raised-button color="primary" id="subButton"
-                 [disabled]="!loginForm.form.valid">Aceptar</button>
+                 [disabled]="!emailFC.valid || !passFC.valid">Aceptar</button>
             </form>
         </md-card-content>
     </md-card>
+    <button type="button" name="button" (click)="login()">main sin log</button>
 </div>
