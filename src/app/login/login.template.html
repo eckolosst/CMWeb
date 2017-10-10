@@ -1,26 +1,26 @@
 <br>
 <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-    <md-card class="form-card">
-        <md-card-header>
-            <md-card-title>Inicio de sesión</md-card-title>
-        </md-card-header>
-        <md-card-content>
+    <mat-card class="form-card">
+        <mat-card-header>
+            <mat-card-title>Inicio de sesión</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
             <form (ngSubmit)="login()">
-                <md-form-field class="campoForm">
-                    <input type="email" mdInput placeholder="Email" [formControl]="emailFC"
+                <mat-form-field class="campoForm">
+                    <input type="email" matInput placeholder="Email" [formControl]="emailFC"
                     [(ngModel)]="user.email" >
-                    <md-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</md-error>
-                    <md-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></md-error>
-                </md-form-field>
-                <md-form-field class="campoForm">
-                    <input type="password"mdInput placeholder="Cotraseña"[formControl]="passFC"
+                    <mat-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</mat-error>
+                    <mat-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="campoForm">
+                    <input type="password"matInput placeholder="Cotraseña"[formControl]="passFC"
                     [(ngModel)]="user.password">
-                    <md-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></md-error>
-                </md-form-field>
-                <button type="submit" md-raised-button color="primary" id="subButton"
+                    <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary" id="subButton"
                  [disabled]="!emailFC.valid || !passFC.valid">Aceptar</button>
             </form>
-        </md-card-content>
-    </md-card>
+        </mat-card-content>
+    </mat-card>
     <button type="button" name="button" (click)="login()">main sin log</button>
 </div>

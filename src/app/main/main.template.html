@@ -1,20 +1,20 @@
 <div id="main-container">
-    <md-sidenav-container class="example-sidenav-fab-container">
-        <md-sidenav mode="side" opened="true">
+    <mat-sidenav-container class="example-sidenav-fab-container">
+        <mat-sidenav mode="side" opened="true">
             <div class="example-scrolling-content text-left">
-                <md-nav-list>
-                  <p md-subheader style="background: rgba(0,0,0,.32); color: hsla(0,0%,100%,.87); letter-spacing: 1px;
+                <mat-nav-list>
+                  <p mat-subheader style="background: rgba(0,0,0,.32); color: hsla(0,0%,100%,.87); letter-spacing: 1px;
 line-height: 24px;
 text-transform: uppercase;">Secciones:</p>
                   <div *ngFor="let seccion of secciones; let i = index">
-                      <md-divider></md-divider>
-                      <md-list-item class="item-seccion" (click)="llenar(i)">
+                      <mat-divider></mat-divider>
+                      <mat-list-item class="item-seccion" (click)="llenar(i)">
                           <p>{{seccion.title}}</p>
-                      </md-list-item>
+                      </mat-list-item>
                   </div>
-              </md-nav-list>
+              </mat-nav-list>
             </div>
-        </md-sidenav>
+        </mat-sidenav>
 
         <div *ngIf="seleccion == -1">
             <h3 class="sub">Panel Principal</h3>
@@ -26,16 +26,16 @@ text-transform: uppercase;">Secciones:</p>
                         <ul>
                             <li class="col-md-4">TIPOGRAFÍA<br>
                                 <ul class="sin-style">
-                                    <li><span><md-icon class="icon-log pad">format_bold</md-icon> Negrita</span></li>
-                                    <li><md-icon class="icon-log pad">format_italic</md-icon> Cursiva</li>
-                                    <li><md-icon class="icon-log pad">format_underline</md-icon> Subrayado</li>
-                                    <li><md-icon class="icon-log pad">strikethrough_s</md-icon> Tachado</li>
+                                    <li><span><mat-icon class="icon-log pad">format_bold</mat-icon> Negrita</span></li>
+                                    <li><mat-icon class="icon-log pad">format_italic</mat-icon> Cursiva</li>
+                                    <li><mat-icon class="icon-log pad">format_underline</mat-icon> Subrayado</li>
+                                    <li><mat-icon class="icon-log pad">strikethrough_s</mat-icon> Tachado</li>
                                 </ul>
                             </li>
                             <li class="col-md-4">LISTAS
                                 <ul class="sin-style">
-                                    <li><md-icon class="icon-log pad">format_list_bulleted</md-icon> Numerada</li>
-                                    <li><md-icon class="icon-log pad">format_list_numbered</md-icon> No Numerada</li>
+                                    <li><mat-icon class="icon-log pad">format_list_bulleted</mat-icon> Numerada</li>
+                                    <li><mat-icon class="icon-log pad">format_list_numbered</mat-icon> No Numerada</li>
                                 </ul>
                             </li>
                             <li class="col-md-4">MULTIMEDIA
@@ -56,23 +56,23 @@ text-transform: uppercase;">Secciones:</p>
             <br>
             <div class="col-md-8 col-md-offset-2">
                 <form (ngSubmit)="setSeccion()" #mainForm="ngForm">
-                    <md-form-field class="campoForm">
-                        <input type="text" mdInput placeholder="Título de la Sección" [formControl]="titleFC"
+                    <mat-form-field class="campoForm">
+                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="titleFC"
                                [(ngModel)]="title" required>
-                        <md-error *ngIf="titleFC.hasError('required')">Campo <strong>necesario</strong></md-error>
-                    </md-form-field>
+                        <mat-error *ngIf="titleFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+                    </mat-form-field>
                     <br>
                     <br>
                     <p id="title-editor" class="text-left">Contenido de la Sección</p>
                     <quill-editor [formControl]="seccionFC" [(ngModel)]="description" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
                                   [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
                     </quill-editor>
-                    <button type="submit" md-raised-button color="primary" id="subButton"
+                    <button type="submit" mat-raised-button color="primary" id="subButton"
                      [disabled]="mainForm.invalid">Aceptar</button>
-                    <button (click)="back()" md-raised-button color="primary" id="backButton">Volver</button>
+                    <button (click)="back()" mat-raised-button color="primary" id="backButton">Volver</button>
                 </form>
                 <br>
             </div>
         </div>
-    </md-sidenav-container>
+    </mat-sidenav-container>
 </div>

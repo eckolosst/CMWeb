@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { QuillEditorComponent } from 'ngx-quill/src/quill-editor.component';
 import { Router, ActivatedRoute} from '@angular/router'
 import { FormControl, FormControlDirective, Validators } from '@angular/forms';
-import { MdSnackBar, MdSnackBarHorizontalPosition, MdSnackBarVerticalPosition, MdSnackBarConfig } from '@angular/material';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig } from '@angular/material';
 declare var $: any;
 
 
@@ -24,7 +24,7 @@ export class MainComponent {
         constructor(
             private _route: ActivatedRoute,
             private _router: Router,
-            public snackBar: MdSnackBar
+            public snackBar: MatSnackBar
         ){
             this.secciones = [
                 {

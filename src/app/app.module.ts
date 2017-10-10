@@ -11,14 +11,14 @@ import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
 
 // Angular Material
-import { MdToolbarModule,
-         MdInputModule,
-         MdCardModule,
-         MdButtonModule,
-         MdIconModule,
-         MdSidenavModule,
-         MdListModule,
-         MdSnackBarModule} from '@angular/material';
+import { MatToolbarModule,
+         MatInputModule,
+         MatCardModule,
+         MatButtonModule,
+         MatIconModule,
+         MatSidenavModule,
+         MatListModule,
+         MatSnackBarModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -33,14 +33,14 @@ import { MdToolbarModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MdToolbarModule,
-    MdInputModule,
-    MdCardModule,
-    MdButtonModule,
-    MdIconModule,
-    MdSidenavModule,
-    MdListModule,
-    MdSnackBarModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatSnackBarModule,
     QuillModule,
     routing
   ],
