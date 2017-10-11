@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
+import { HttpModule } from '@angular/http';
 
 // Angular Material
 import { MatToolbarModule,
@@ -31,6 +32,7 @@ import { MatToolbarModule,
   imports: [
     BrowserModule,
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatToolbarModule,

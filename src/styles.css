@@ -110,6 +110,7 @@ h3{
 .example-scrolling-content {
     overflow: auto;
     height: 100%;
+    width: 100%
 }
 .item-seccion{
     padding: 2px;

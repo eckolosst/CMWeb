@@ -9,16 +9,17 @@ text-transform: uppercase;">Secciones:</p>
                   <div *ngFor="let seccion of secciones; let i = index">
                       <mat-divider></mat-divider>
                       <mat-list-item class="item-seccion" (click)="llenar(i)">
-                          <p>{{seccion.title}}</p>
+                          <p>{{seccion.tituloBtn}}</p>
                       </mat-list-item>
                   </div>
+                  <mat-divider></mat-divider>
               </mat-nav-list>
             </div>
         </mat-sidenav>
 
-        <div *ngIf="seleccion == -1">
+        <div *ngIf="seleccion == -1" class="example-scrolling-content">
             <h3 class="sub">Panel Principal</h3>
-            <div class="col-md-8 col-md-offset-2 text-left instrucciones">
+            <div class="col-lg-10 col-lg-offset-2 col-md-8 col-md-offset-2 text-left instrucciones">
                 <ol>
                     <li>Seleccionar sección que desea modificar.</li>
                     <li>Editar título.</li>
@@ -52,23 +53,28 @@ text-transform: uppercase;">Secciones:</p>
         </div>
 
         <div *ngIf="seleccion > -1" class="example-scrolling-content">
-            <h3>Sección: {{titleFijo}}</h3>
+            <h3>Sección: {{tituloFijo}}</h3>
             <br>
             <div class="col-md-8 col-md-offset-2">
-                <form (ngSubmit)="setSeccion()" #mainForm="ngForm">
+                <form (ngSubmit)="setSeccion()">
                     <mat-form-field class="campoForm">
-                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="titleFC"
-                               [(ngModel)]="title" required>
-                        <mat-error *ngIf="titleFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="tituloFC"
+                               [(ngModel)]="titulo" required>
+                        <mat-error *ngIf="tituloFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
+                    <!-- <mat-form-field class="campoForm">
+                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="seccionFC"
+                               [(ngModel)]="contenido" required>
+                        <mat-error *ngIf="seccionFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+                    </mat-form-field> -->
                     <br>
                     <br>
-                    <p id="title-editor" class="text-left">Contenido de la Sección</p>
-                    <quill-editor [formControl]="seccionFC" [(ngModel)]="description" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
+                    <p id="titulo-editor" class="text-left">Contenido de la Sección</p>
+                    <quill-editor [formControl]="seccionFC" [(ngModel)]="contenido" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
                                   [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
                     </quill-editor>
                     <button type="submit" mat-raised-button color="primary" id="subButton"
-                     [disabled]="mainForm.invalid">Aceptar</button>
+                     [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
                     <button (click)="back()" mat-raised-button color="primary" id="backButton">Volver</button>
                 </form>
                 <br>

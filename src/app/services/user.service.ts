@@ -13,6 +13,11 @@ export class UserService {
 
   constructor(private _router: Router) { }
 
+
+/*---------------------------------------------------------------------------*/
+/*                        Peticiones para Usuarios                           */
+/*---------------------------------------------------------------------------*/
+
   logout() {
     localStorage.removeItem("user");
     this._router.navigate(['/login']);
