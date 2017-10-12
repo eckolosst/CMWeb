@@ -47,11 +47,11 @@ export class MainComponent implements OnInit{
 
         setSeccion() {
             console.log(this.contenido);
-            this.seleccion = -1;
 
-            this.myform.reset();
+            let data = new Seccion(this.titulo, this.titulo, this.contenido);
+            let id = this.secciones[this.seleccion]._id;
 
-            this._dataService.setSeccion("").subscribe(
+            this._dataService.editSeccion(id, data).subscribe(
                 result =>{
                       this.snackBar.open("Sección  "+this.tituloFijo.toUpperCase()+"  actualizada con éxito!", null,{
                       duration: 4000,
@@ -59,6 +59,8 @@ export class MainComponent implements OnInit{
                       verticalPosition: 'top',
                       extraClasses: ['success-snackbar']
                     });
+                    //Hace que vuelva al "Panel Principal"
+                    // this.seleccion = -1;
                 },
                 error =>{
                     console.log(<any>error);
@@ -68,13 +70,17 @@ export class MainComponent implements OnInit{
                       verticalPosition: 'top',
                       extraClasses: ['success-snackbar']
                     });
+
                 }
             );
-
             // Transformación String a HTML (para APP - NO BORRAR TODAVIA)
             // var $hs = $( "#hs" );
             // var htmlString = $.parseHTML( this.contenido );
             // $hs.append( htmlString );
+
+            //Evita error cuando cambio de seción. Ver si hay otra solución.
+            // this.seccionFC = new FormControl('', [Validators.required]);
+
         }
 
         llenar(i){
@@ -96,10 +102,8 @@ export class MainComponent implements OnInit{
 
         back(){
             this.seleccion = -1;
-            this.myform.patchValue({
-                "titulo": "",
-                "contenido": ''
-            });
-            // this.myform.reset();
+
+            //Evita error cuando cambio de seción. Ver si hay otra solución.
+            this.seccionFC = new FormControl('', [Validators.required]);
         }
 }
