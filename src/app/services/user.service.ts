@@ -11,7 +11,7 @@ var users = [
 @Injectable()
 export class UserService {
 
-  constructor(private _router: Router) { }
+constructor(private _router: Router) { }
 
 
 /*---------------------------------------------------------------------------*/

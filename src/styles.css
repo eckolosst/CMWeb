@@ -91,27 +91,37 @@ h3{
     height: 79.5%;
     width: 100%
 }
+
+/*Sidenav con scroll*/
 .example-sidenav-fab-container {
-    /*border: 1px solid rgba(0, 0, 0, 0.5);*/
-    /*height: 492px;
-    max-height: 492px;*/
     height: 100%;
     text-align:center;
 }
 .example-sidenav-fab-container md-sidenav {
-    text-align:center;
-    max-width: 100%
+    max-height: 100px
+}
+.mat-sidenav-titulo{
+    background: rgba(0,0,0,.32) !important;
+    color: hsla(0,0%,100%,.87) !important;
+    letter-spacing: 1px !important;
+    line-height: 24px !important;
+    text-transform: uppercase;
 }
 .example-sidenav-fab-container .mat-sidenav-content,
 .example-sidenav-fab-container md-sidenav {
-    display: flex;
-    overflow: visible;
+    /*display: flex;
+    overflow: visible;*/
+    margin: 0;
+  width: 100%;
+  height: 100%;
 }
 .example-scrolling-content {
     overflow: auto;
     height: 100%;
     width: 100%
 }
+/******END*******/
+
 .item-seccion{
     padding: 2px;
 }
@@ -129,6 +139,7 @@ h3{
     background-color: #424242 !important;
     color: white !important;
     font-style: oblique;
+    text-align: center;
 }
 .sin-style{
     list-style: none;
@@ -146,4 +157,5 @@ h3{
 }
 .sub{
     text-decoration: underline;
+    margin-left: -20px;
 }

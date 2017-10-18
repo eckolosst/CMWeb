@@ -3,9 +3,7 @@
         <mat-sidenav mode="side" opened="true">
             <div class="example-scrolling-content text-left">
                 <mat-nav-list>
-                  <p mat-subheader style="background: rgba(0,0,0,.32); color: hsla(0,0%,100%,.87); letter-spacing: 1px;
-line-height: 24px;
-text-transform: uppercase;">Secciones:</p>
+                  <p mat-subheader class="mat-sidenav-titulo">Secciones:</p>
                   <div *ngFor="let seccion of secciones; let i = index">
                       <mat-divider></mat-divider>
                       <mat-list-item class="item-seccion" (click)="llenar(i)">
@@ -18,8 +16,8 @@ text-transform: uppercase;">Secciones:</p>
         </mat-sidenav>
 
         <div *ngIf="seleccion == -1" class="example-scrolling-content">
-            <h3 class="sub">Panel Principal</h3>
-            <div class="col-lg-10 col-lg-offset-2 col-md-8 col-md-offset-2 text-left instrucciones">
+            <h3 class="sub col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Panel Principal</h3>
+            <div class="col-lg-10 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4 text-left instrucciones">
                 <ol>
                     <li>Seleccionar sección que desea modificar.</li>
                     <li>Editar título.</li>
@@ -53,9 +51,9 @@ text-transform: uppercase;">Secciones:</p>
         </div>
 
         <div *ngIf="seleccion > -1" class="example-scrolling-content">
-            <h3>Sección: {{tituloFijo}}</h3>
+            <h3 class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Sección: {{tituloFijo}}</h3>
             <br>
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">
                 <form (ngSubmit)="setSeccion()">
                     <mat-form-field class="campoForm">
                         <input type="text" matInput placeholder="Título de la Sección" [formControl]="tituloFC"

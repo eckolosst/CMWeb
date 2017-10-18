@@ -46,9 +46,9 @@ export class MainComponent implements OnInit{
         }
 
         setSeccion() {
-            console.log(this.contenido);
+            // console.log(this.contenido);
 
-            let data = new Seccion(this.titulo, this.titulo, this.contenido);
+            let data = new Seccion(this.titulo, this.contenido, this.titulo);
             let id = this.secciones[this.seleccion]._id;
 
             this._dataService.editSeccion(id, data).subscribe(
@@ -60,7 +60,17 @@ export class MainComponent implements OnInit{
                       extraClasses: ['success-snackbar']
                     });
                     //Hace que vuelva al "Panel Principal"
-                    // this.seleccion = -1;
+                    this.seleccion = -1;
+
+                    //Recarga la lista de secciones, ver si se puede hacer de otra manera
+                    this._dataService.getListaSecciones().subscribe(
+                            result =>{
+                                this.secciones = result.titulos;
+                            },
+                            error =>{
+                                console.log(<any>error);
+                            }
+                    );
                 },
                 error =>{
                     console.log(<any>error);
@@ -77,9 +87,6 @@ export class MainComponent implements OnInit{
             // var $hs = $( "#hs" );
             // var htmlString = $.parseHTML( this.contenido );
             // $hs.append( htmlString );
-
-            //Evita error cuando cambio de seción. Ver si hay otra solución.
-            // this.seccionFC = new FormControl('', [Validators.required]);
 
         }
 

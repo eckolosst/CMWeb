@@ -26,7 +26,7 @@ export class DataService{
     return this._http.get(this.url+"/seccion/"+id).map(res => res.json());
   }
   editSeccion(id, data){
-    let params = JSON.stringify(data)
+    let params = JSON.stringify(data);
     let headers = new Headers({"Content-Type":"application/json"});
     return this._http.put(this.url+"/seccion/"+id,params,{headers: headers}).map(res => res.json());
   }
