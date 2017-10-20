@@ -64,11 +64,6 @@
                                [(ngModel)]="titulo" required>
                         <mat-error *ngIf="tituloFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
-                    <!-- <mat-form-field class="campoForm">
-                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="seccionFC"
-                               [(ngModel)]="contenido" required>
-                        <mat-error *ngIf="seccionFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
-                    </mat-form-field> -->
                     <br>
                     <br>
                     <p id="titulo-editor" class="text-left">Contenido de la Sección</p>
@@ -78,7 +73,6 @@
                     <button type="submit" mat-raised-button color="accent" id="subButton" [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
                     <button type="button" (click)="back()" mat-raised-button color="primary">Cancelar</button>
                     <button type="button" (click)="delete()" *ngIf="seleccion != -2" mat-raised-button color="warn">Eliminar</button>
-
                 </form>
                 <br>
             </div>
