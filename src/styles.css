@@ -93,6 +93,9 @@ h3{
 }
 
 /*Sidenav con scroll*/
+mat-sidenav-content{
+    margin-left: 110px !important;
+}
 .example-sidenav-fab-container {
     height: 100%;
     text-align:center;

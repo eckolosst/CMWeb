@@ -19,7 +19,8 @@ import { MatToolbarModule,
          MatIconModule,
          MatSidenavModule,
          MatListModule,
-         MatSnackBarModule} from '@angular/material';
+         MatSnackBarModule,
+         MatDialogModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatSnackBarModule,
+    MatDialogModule,
     QuillModule,
     routing
   ],

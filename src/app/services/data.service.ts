@@ -30,4 +30,14 @@ export class DataService{
     let headers = new Headers({"Content-Type":"application/json"});
     return this._http.put(this.url+"/seccion/"+id,params,{headers: headers}).map(res => res.json());
   }
+  deleteSeccion(id){
+    let headers = new Headers({"Content-Type":"application/json"});
+    let options = new RequestOptions({headers: headers});
+    return this._http.delete(this.url+"/seccion/"+id,options).map(res => res.json());
+  }
+  createSeccion(data){
+    let params = JSON.stringify(data);
+    let headers = new Headers({"Content-Type":"application/json"});
+    return this._http.post(this.url+"/seccion",params,{headers: headers}).map(res => res.json());
+  }
 }

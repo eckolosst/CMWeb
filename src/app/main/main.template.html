@@ -4,6 +4,9 @@
             <div class="example-scrolling-content text-left">
                 <mat-nav-list>
                   <p mat-subheader class="mat-sidenav-titulo">Secciones:</p>
+                  <mat-list-item class="item-seccion" (click)="llenar(-2)">
+                      <p><span class="glyphicon glyphicon-plus editor-gly"> </span>Nueva Sección</p>
+                  </mat-list-item>
                   <div *ngFor="let seccion of secciones; let i = index">
                       <mat-divider></mat-divider>
                       <mat-list-item class="item-seccion" (click)="llenar(i)">
@@ -18,8 +21,9 @@
         <div *ngIf="seleccion == -1" class="example-scrolling-content">
             <h3 class="sub col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Panel Principal</h3>
             <div class="col-lg-10 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4 text-left instrucciones">
+                <h4>Instructivo:</h4>
                 <ol>
-                    <li>Seleccionar sección que desea modificar.</li>
+                    <li>Seleccionar una opción del panel lateral.</li>
                     <li>Editar título.</li>
                     <li>Editar contenido de la sección.
                         <ul>
@@ -50,7 +54,7 @@
             </div>
         </div>
 
-        <div *ngIf="seleccion > -1" class="example-scrolling-content">
+        <div *ngIf="seleccion != -1 || nueva" class="example-scrolling-content">
             <h3 class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Sección: {{tituloFijo}}</h3>
             <br>
             <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">
@@ -71,9 +75,10 @@
                     <quill-editor [formControl]="seccionFC" [(ngModel)]="contenido" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
                                   [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
                     </quill-editor>
-                    <button type="submit" mat-raised-button color="primary" id="subButton"
-                     [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
-                    <button (click)="back()" mat-raised-button color="primary" id="backButton">Volver</button>
+                    <button type="submit" mat-raised-button color="accent" id="subButton" [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
+                    <button type="button" (click)="back()" mat-raised-button color="primary">Cancelar</button>
+                    <button type="button" (click)="delete()" *ngIf="seleccion != -2" mat-raised-button color="warn">Eliminar</button>
+
                 </form>
                 <br>
             </div>
