@@ -1,87 +1,36 @@
-<div id="main-container">
-    <mat-sidenav-container class="example-sidenav-fab-container">
-        <mat-sidenav mode="side" opened="true">
-            <div class="example-scrolling-content text-left">
-                <mat-nav-list>
-                  <p mat-subheader class="mat-sidenav-titulo">Secciones:</p>
-                  <mat-list-item class="item-seccion" (click)="llenar(-2)">
-                      <p><span class="glyphicon glyphicon-plus editor-gly"> </span>Nueva Sección</p>
-                  </mat-list-item>
-                  <div *ngFor="let seccion of secciones; let i = index">
-                      <mat-divider></mat-divider>
-                      <mat-list-item class="item-seccion" (click)="llenar(i)">
-                          <p>{{seccion.tituloBtn}}</p>
-                      </mat-list-item>
-                  </div>
-                  <mat-divider></mat-divider>
-              </mat-nav-list>
-            </div>
-        </mat-sidenav>
-
-        <div *ngIf="seleccion == -1" class="example-scrolling-content">
-            <h3 class="sub col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Panel Principal</h3>
-            <div class="col-lg-10 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4 text-left instrucciones">
-                <h4>Instructivo:</h4>
-                <ol>
-                    <li>Seleccionar una opción del panel lateral.</li>
-                    <li>Editar título.</li>
-                    <li>Editar contenido de la sección.
-                        <ul>
-                            <li class="col-md-4">TIPOGRAFÍA<br>
-                                <ul class="sin-style">
-                                    <li><span><mat-icon class="icon-log pad">format_bold</mat-icon> Negrita</span></li>
-                                    <li><mat-icon class="icon-log pad">format_italic</mat-icon> Cursiva</li>
-                                    <li><mat-icon class="icon-log pad">format_underline</mat-icon> Subrayado</li>
-                                    <li><mat-icon class="icon-log pad">strikethrough_s</mat-icon> Tachado</li>
-                                </ul>
-                            </li>
-                            <li class="col-md-4">LISTAS
-                                <ul class="sin-style">
-                                    <li><mat-icon class="icon-log pad">format_list_bulleted</mat-icon> Numerada</li>
-                                    <li><mat-icon class="icon-log pad">format_list_numbered</mat-icon> No Numerada</li>
-                                </ul>
-                            </li>
-                            <li class="col-md-4">MULTIMEDIA
-                                <ul class="sin-style">
-                                    <li><span class="glyphicon glyphicon-link editor-gly"></span> Enlace Web</li>
-                                    <li><span class="glyphicon glyphicon-picture editor-gly"></span> Imagen</li>
-                                    <li><span class="glyphicon glyphicon-film editor-gly"></span> Video</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ol>
-            </div>
-        </div>
-
-        <div *ngIf="seleccion != -1 || nueva" class="example-scrolling-content">
-            <h3 class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">Sección: {{tituloFijo}}</h3>
+<div id="main-container" class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " >
+            <h3 class="text-center">PANEL PRINCIPAL</h3>
             <br>
-            <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-4 col-xs-offset-4">
-                <form (ngSubmit)="setSeccion()">
-                    <mat-form-field class="campoForm">
-                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="tituloFC"
-                               [(ngModel)]="titulo" required>
-                        <mat-error *ngIf="tituloFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
-                    </mat-form-field>
-                    <!-- <mat-form-field class="campoForm">
-                        <input type="text" matInput placeholder="Título de la Sección" [formControl]="seccionFC"
-                               [(ngModel)]="contenido" required>
-                        <mat-error *ngIf="seccionFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
-                    </mat-form-field> -->
-                    <br>
-                    <br>
-                    <p id="titulo-editor" class="text-left">Contenido de la Sección</p>
-                    <quill-editor [formControl]="seccionFC" [(ngModel)]="contenido" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
-                                  [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
-                    </quill-editor>
-                    <button type="submit" mat-raised-button color="accent" id="subButton" [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
-                    <button type="button" (click)="back()" mat-raised-button color="primary">Cancelar</button>
-                    <button type="button" (click)="delete()" *ngIf="seleccion != -2" mat-raised-button color="warn">Eliminar</button>
 
-                </form>
-                <br>
+        </div>
+        <div class="fondo col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
+            <p class="bienvenida">
+                Bienvenida/o a la Web de Administración de "Ciudad Mujer". <br> Aquí podrás administrar los Usuarios que tienen acceso a esta página y la información contenida en las Secciones Informativas que se encuentran en la Aplicación Móvil "Ciudad Mujer".
+            </p>
+            <div class="col-lg-10 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-10 ">
+                <div class="col-md-5 col-md-offset-1">
+                    <mat-card class="form-card text-center">
+                        <mat-card-header>
+                            <div mat-card-avatar class="image-section"></div>
+                            <mat-card-title><b>Administración de Secciones</b></mat-card-title>
+                        </mat-card-header>
+                        <mat-card-actions>
+                            <button mat-raised-button color="primary" (click)="in('section')">Ingresar</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-5">
+                    <mat-card class="form-card text-center">
+                        <mat-card-header>
+                            <div mat-card-avatar class="image-user"></div>
+                            <mat-card-title class="text-center"><b>Administración de Usuarios</b></mat-card-title>
+                        </mat-card-header>
+                        <mat-card-actions>
+                            <button mat-raised-button color="primary" (click)="in('user')">Ingresar</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
             </div>
         </div>
-    </mat-sidenav-container>
 </div>

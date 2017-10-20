@@ -79,6 +79,29 @@ h3{
 /*-----------------------------------------------------------------------------*/
 /*                                      MAIN                                   */
 /*-----------------------------------------------------------------------------*/
+.bienvenida{
+    text-align: center;
+    font-size: 18px;
+    color: #eee;
+    margin-bottom: 50px;
+}
+.image-section{
+    background-image: url('assets/sections/amarillo.png');
+    background-color: white;
+    background-size: cover;
+}
+.image-user{
+    background-image: url('assets/sections/rojo.png');
+    background-color: white;
+    background-size: cover;
+}
+.fondo{
+    background-color: #201f1f;
+    padding: 40px;
+}
+/*-----------------------------------------------------------------------------*/
+/*                                  SECTIONS                                   */
+/*-----------------------------------------------------------------------------*/
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -132,11 +155,11 @@ mat-sidenav-content{
     color: rgba(255,255,255,.7)
 }
 .instrucciones{
-    margin-top: 25px;
-    font-size: 18px;
+    margin-top: 20px;
+    font-size: 16px;
 }
 .instrucciones ol li{
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .success-snackbar{
     background-color: #424242 !important;
