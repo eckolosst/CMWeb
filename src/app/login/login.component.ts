@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UserComponent } from '../user/user.component';
+//import { UserComponent } from '../user/user.component';
+import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Router, ActivatedRoute} from '@angular/router'
 import { FormControl, FormControlDirective, Validators } from '@angular/forms';
@@ -14,20 +15,58 @@ const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/;
 })
 
 export class LoginComponent {
-    public user = new UserComponent('','');
-    public errorMsg = '';
+    public user: User;
+    public identity;
+    public token;
+    public status: String;
     public emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
     public passFC = new FormControl('', [Validators.required, Validators.pattern(PASS_REGEX)]);
     constructor(
-        private _service:UserService,
+        private _userService: UserService,
         private _route: ActivatedRoute,
-        private _router: Router) {}
+        private _router: Router) {
+            this.user = new User('','','','');
+        }
+
+    ngOnInit(){
+    }
 
     login() {
-        if(!this._service.login(this.user)) {
-            this.errorMsg = 'Falla en la autentificación! Intente nuevamente...';
-            // this._router.navigate(['/main']);
-        }
-        this._router.navigate(['/main']);
+        //Logueo de usuario y obtencion del objeto
+        this._userService.singup(this.user).subscribe(
+            response => {
+                this.identity = response.user;
+                if(!this.identity || !this.identity._id){
+                    console.log('El usuario no se ha logueado coorectamente: id incorrecto')
+                    localStorage.setItem('identity',JSON.stringify(this.identity));
+                }else{
+                    this.identity.pass = '';
+                    console.log(this.identity);
+                    //Obtencion del token
+                    this._userService.singup(this.user, 'true').subscribe(
+                        response => {
+                            this.token = response.token;
+                            if(this.token.length <= 0){
+                                console.log('El token no se ha generado');
+                            }else{
+                                localStorage.setItem('token',this.token);
+                                this.status = 'succes';
+                                this._router.navigate(['/main']);
+                            }
+                        },
+                        error => {
+                            console.log(<any> error);
+                        }
+                    );
+                }
+            },
+            error => {
+                var errorMsg = <any>error;
+                if(errorMsg != null){
+                    var body = JSON.parse(error._body);
+                    this.status = 'error';
+                }
+            }
+        );
     }
 }
