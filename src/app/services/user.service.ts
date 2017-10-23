@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from '../global';
@@ -51,5 +51,22 @@ export class UserService {
             this.token = null;
         }
         return this.token
+    }
+
+    getListaUsuarios(){
+        let headers = new Headers({'Content-Type': 'application/json'});
+        return this._http.get(this.url+'/usuario', {headers:headers}).map(res => res.json());
+    }
+
+    createUser(data){
+      let params = JSON.stringify(data);
+      let headers = new Headers({"Content-Type":"application/json"});
+      return this._http.post(this.url+"/registro",params,{headers: headers}).map(res => res.json());
+    }
+
+    deleteUser(id){
+      let headers = new Headers({"Content-Type":"application/json"});
+      let options = new RequestOptions({headers: headers});
+      return this._http.delete(this.url+"/usuario/"+id,options).map(res => res.json());
     }
 }

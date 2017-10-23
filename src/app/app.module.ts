@@ -21,7 +21,10 @@ import { MatToolbarModule,
          MatSidenavModule,
          MatListModule,
          MatSnackBarModule,
-         MatDialogModule} from '@angular/material';
+         MatDialogModule,
+         MatSortModule,
+         MatExpansionModule
+      } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -47,6 +50,8 @@ import { MatToolbarModule,
     MatListModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatSortModule,
+    MatExpansionModule,
     QuillModule,
     routing
   ],

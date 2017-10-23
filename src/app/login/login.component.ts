@@ -69,4 +69,8 @@ export class LoginComponent {
             }
         );
     }
+
+    sinLogin(){
+        this._router.navigate(['/main']);
+    }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute} from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
 declare var $: any;
 
 
@@ -18,11 +18,10 @@ export class MainComponent{
     in(option){
 
         if(option=="section"){
-            console.log("Entró")
             this._router.navigate(['/sections']);
         }
         else{
-            this._router.navigate(['/users']);
+            this._router.navigate(['/user']);
         }
     }
 }

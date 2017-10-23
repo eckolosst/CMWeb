@@ -1,9 +1,73 @@
 <!-- Modificarse en caso de que sea necesario editar los datos de usuario -->
-<div id="main-container" class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 " >
-            <h3 class="sub text-center">Administración de Usuarios</h3>
+<div id="main-container" class="text-center row">
+    <h3 class="">ADMINISTRACIÓN DE USUARIOS</h3>
+    <br>
+        <div class="fondito col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
+
+            <div class="">
+                <p class="textito">En esta sección puede observar una tabla con todos los usuarios que tienen acceso a esta web. <br>Además tendrá la posibilidad de agregar y eliminar usuarios.</p>
+            </div>
             <br>
+            <div>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      + Crear Usuario
+                    </mat-panel-title>
+                    <mat-panel-description>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
 
+                  <mat-form-field>
+                    <input matInput placeholder="Nombre" [(ngModel)]="nombre">
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input matInput placeholder="Apellido" [(ngModel)]="apellido">
+                  </mat-form-field>
+
+                    <mat-form-field>
+                      <input matInput placeholder="Email" [(ngModel)]="email">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                      <input matInput placeholder="Contraseña" [(ngModel)]="pass">
+                    </mat-form-field>
+
+                    <mat-action-row>
+                      <button mat-raised-button color="accent" (click)="crearUsuario()">Agregar</button>
+                    </mat-action-row>
+                </mat-expansion-panel>
+            </div>
+            <br>
+            <br>
+            <div>
+                <table matSort (matSortChange)="sortData($event)" class="table">
+                  <tr class="text-left">
+                    <th>#</th>
+                    <th mat-sort-header="nombre">Nombre</th>
+                    <th mat-sort-header="apellido">Apellido</th>
+                    <th mat-sort-header="email">Email</th>
+                    <th></th>
+                  </tr>
+
+                  <tr *ngFor="let user of sortedData; let i = index" class="text-left">
+                    <td>{{i+1}}</td>
+                    <td>{{user.nombre}}</td>
+                    <td>{{user.apellido}}</td>
+                    <td>{{user.email}}</td>
+                    <td class="derecha" >
+                        <button *ngIf="user.email!='admin@email.com'" mat-raised-button type="button" name="button" color="warn" (click)="eliminarUsuario(i)">Eliminar</button>
+                    </td>
+                  </tr>
+                </table>
+            </div>
+            <div class="col-lg-12">
+                <button type="button" (click)="atras()" mat-raised-button color="primary">Volver</button>
+            </div>
         </div>
-
+        <!-- <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+            <br>
+            <br>
+        </div> -->
 </div>
