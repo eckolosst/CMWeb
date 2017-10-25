@@ -22,7 +22,9 @@ export class UserService {
     }
 
     singup(user_to_login, gettoken = null){
-        if(gettoken != null){user_to_login.gettoken = gettoken;}
+        if(gettoken != null){
+            user_to_login.gettoken = gettoken;
+        }
         let params = JSON.stringify(user_to_login);
         let headers =  new Headers({'Content-Type': 'application/json'});
         return  this._http.post(this.url+'/usuarioLog/', params, {headers:headers})
@@ -30,16 +32,31 @@ export class UserService {
     }
 
     getIdentity(){
-        let identity = JSON.parse(localStorage.getItem('identity'));
-        if(identity != 'undefined'){this.identity = identity;}
-        else{this.identity = null;}
+        let identityIn;
+        try{
+            identityIn = JSON.parse(localStorage.getItem('identity'));
+        }
+        catch(ex){
+            console.log('no se ha logueado nadie aun')
+        }
+
+        if(identityIn != 'undefined'){
+            this.identity = identityIn;
+        }
+        else{
+            this.identity = null;
+        }
         return this.identity;
     }
 
     getTokem(){
-        let token = localStorage.getItem('token');
-        if(token != 'undefined'){this.token = token;}
-        else{this.token = null;}
+        let tokenIn = localStorage.getItem('token');
+        if(tokenIn != 'undefined'){
+            this.token = tokenIn;
+        }
+        else{
+            this.token = null;
+        }
         return this.token
     }
 

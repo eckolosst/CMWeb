@@ -8,7 +8,7 @@ import { UserService } from './services/user.service';
   providers: [UserService]
 })
 export class AppComponent implements OnInit, DoCheck{
-    public identity = null;
+    public identity;
 
     constructor(
         private _userService: UserService,
@@ -25,7 +25,8 @@ export class AppComponent implements OnInit, DoCheck{
     }
 
     logOut(){
-        localStorage.clear;
+        console.log(this.identity);
+        localStorage.clear();
         this.identity = null;
         this._router.navigate(['/']);
     }
