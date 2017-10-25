@@ -31,7 +31,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput placeholder="Contraseña" [(ngModel)]="pass">
+                      <input matInput placeholder="Contraseña" [(ngModel)]="pass" type="password">
                     </mat-form-field>
 
                     <mat-action-row>
@@ -57,6 +57,7 @@
                     <td>{{user.apellido}}</td>
                     <td>{{user.email}}</td>
                     <td class="derecha" >
+                        <!-- Con la siguiente condición se preserva el usuario Administrador original -->
                         <button *ngIf="user.email!='admin@email.com'" mat-raised-button type="button" name="button" color="warn" (click)="eliminarUsuario(i)">Eliminar</button>
                     </td>
                   </tr>
