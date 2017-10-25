@@ -2,14 +2,16 @@
     <mat-toolbar id="main-nav" color="primary">
         <img class="img-footer" src="assets/mumala3.png" routerLink='/home'>
         <span class="example-spacer"></span>
-        <button *ngIf="!logueado" (click)="logIn()" mat-raised-button color="basic" routerLink='/login'>
+        <button *ngIf="!identity" mat-raised-button color="basic" routerLink='/login'>
             <mat-icon class="icon-log">account_circle</mat-icon>Iniciar Sesión
         </button>
-        <button *ngIf="logueado" (click)="logOut()" mat-raised-button color="basic" routerLink='/home'>
-            <mat-icon class="icon-log">close</mat-icon>Cerrar Sesión
-        </button>
+        <div *ngIf="identity">
+            <span>Bienvenido {{identity.name}}</span>
+            <button (click)="logOut()" mat-raised-button color="basic" routerLink='/home'>
+                <mat-icon class="icon-log">close</mat-icon>Cerrar Sesión
+            </button>
+        </div>
     </mat-toolbar>
-
     <router-outlet></router-outlet>
 </div>
 

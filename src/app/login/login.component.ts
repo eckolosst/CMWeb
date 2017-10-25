@@ -35,28 +35,23 @@ export class LoginComponent {
         //Logueo de usuario y obtencion del objeto
         this._userService.singup(this.user).subscribe(
             response => {
-                this.identity = response.user;
+                this.identity = response;
                 if(!this.identity || !this.identity._id){
                     console.log('El usuario no se ha logueado coorectamente: id incorrecto')
-                    localStorage.setItem('identity',JSON.stringify(this.identity));
                 }else{
-                    this.identity.pass = '';
-                    console.log(this.identity);
+                    localStorage.setItem('identity', JSON.stringify(this.identity));
                     //Obtencion del token
                     this._userService.singup(this.user, 'true').subscribe(
                         response => {
                             this.token = response.token;
-                            if(this.token.length <= 0){
-                                console.log('El token no se ha generado');
-                            }else{
+                            if(this.token.length <= 0){console.log('El token no se ha generado');}
+                            else{
                                 localStorage.setItem('token',this.token);
                                 this.status = 'succes';
                                 this._router.navigate(['/main']);
                             }
                         },
-                        error => {
-                            console.log(<any> error);
-                        }
+                        error => {console.log(<any> error);}
                     );
                 }
             },
@@ -69,8 +64,9 @@ export class LoginComponent {
             }
         );
     }
-
-    sinLogin(){
-        this._router.navigate(['/main']);
-    }
+    // 
+    // sinLogin(){
+    //     localStorage.setItem('identity', JSON.stringify({"name":'BETO',"apellido":'',"email":'',"pass":''}) );
+    //     this._router.navigate(['/main']);
+    // }
 }

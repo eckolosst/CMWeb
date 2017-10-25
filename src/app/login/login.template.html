@@ -14,7 +14,7 @@
                 </mat-form-field>
                 <mat-form-field class="campoForm">
                     <input type="password"matInput placeholder="Cotraseña"[formControl]="passFC"
-                    [(ngModel)]="user.password">
+                    [(ngModel)]="user.pass">
                     <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                 </mat-form-field>
                 <button type="submit" mat-raised-button color="primary" id="subButton"
@@ -25,5 +25,5 @@
     <div class="alert alert-danger" *ngIf="status == 'error'">
         No te has identificado correctamente
     </div>
-    <button type="button" name="button" (click)="sinLogin()">main sin log</button>
+    <!-- <button type="button" name="button" (click)="sinLogin()">main sin log</button> -->
 </div>

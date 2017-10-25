@@ -17,39 +17,29 @@ export class UserService {
     register(user_to_register){
         let params = JSON.stringify(user_to_register);
         let headers = new Headers({'Content-Type': 'application/json'});
-
         return this._http.post(this.url+'/registro/', params, {headers:headers})
                          .map(res => res.json());
     }
 
     singup(user_to_login, gettoken = null){
-        if(gettoken != null){
-            user_to_login.gettoken = gettoken;
-        }
+        if(gettoken != null){user_to_login.gettoken = gettoken;}
         let params = JSON.stringify(user_to_login);
         let headers =  new Headers({'Content-Type': 'application/json'});
-
         return  this._http.post(this.url+'/usuarioLog/', params, {headers:headers})
                           .map(res => res.json());
     }
 
     getIdentity(){
         let identity = JSON.parse(localStorage.getItem('identity'));
-        if(identity != 'undefined'){
-            this.identity = identity;
-        }else{
-            this.identity = null;
-        }
+        if(identity != 'undefined'){this.identity = identity;}
+        else{this.identity = null;}
         return this.identity;
     }
 
     getTokem(){
         let token = localStorage.getItem('token');
-        if(token != 'undefined'){
-            this.token = token;
-        }else{
-            this.token = null;
-        }
+        if(token != 'undefined'){this.token = token;}
+        else{this.token = null;}
         return this.token
     }
 

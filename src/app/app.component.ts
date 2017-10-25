@@ -1,21 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
+import { Router, ActivatedRoute} from '@angular/router'
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  providers: [UserService]
 })
-export class AppComponent{
-    public logueado: boolean;
+export class AppComponent implements OnInit, DoCheck{
+    public identity = null;
 
-    constructor(){
-        this.logueado = false;
+    constructor(
+        private _userService: UserService,
+        private _route: ActivatedRoute,
+        private _router: Router
+    ){}
+
+    ngOnInit(){
+        this.identity = this._userService.getIdentity();
     }
 
-    logIn(){
-        this.logueado = true;
+    ngDoCheck(){
+        this.identity = this._userService.getIdentity();
     }
+
     logOut(){
-        this.logueado = false;
+        localStorage.clear;
+        this.identity = null;
+        this._router.navigate(['/']);
     }
 }
