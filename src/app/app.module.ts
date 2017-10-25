@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
 import { SectionsComponent } from './sections/sections.component';
 import { HttpModule } from '@angular/http';
+import { QRCodeModule } from 'angular2-qrcode';
 
 // Angular Material
 import { MatToolbarModule,
@@ -53,6 +54,7 @@ import { MatToolbarModule,
     MatSortModule,
     MatExpansionModule,
     QuillModule,
+    QRCodeModule,
     routing
   ],
   providers: [appRoutingProviders],

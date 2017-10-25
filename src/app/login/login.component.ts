@@ -35,12 +35,12 @@ export class LoginComponent {
         //Logueo de usuario y obtencion del objeto
         this._userService.singup(this.user).subscribe(
             response => {
-                this.identity = response.user;
+                // console.log("Respuesta: ",response);
+                this.identity = response;
                 if(!this.identity || !this.identity._id){
                     console.log('El usuario no se ha logueado coorectamente: id incorrecto')
                     localStorage.setItem('identity',JSON.stringify(this.identity));
                 }else{
-                    this.identity.pass = '';
                     console.log(this.identity);
                     //Obtencion del token
                     this._userService.singup(this.user, 'true').subscribe(
