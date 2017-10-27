@@ -6,8 +6,10 @@
             <mat-icon class="icon-log">account_circle</mat-icon>Iniciar Sesión
         </button>
         <div *ngIf="identity">
-            <span>Bienvenido {{identity.nombre}}</span>
-            <a (click)="logOut()"><mat-icon class="icon-log">close</mat-icon></a>
+            <span>Hola {{identity.nombre}}! </span>
+            <!-- <a (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span></a> -->
+            <!-- <a (click)="logOut()"><span class=" glyphicon glyphicon-remove-circle"></span></a> -->
+            <button mat-icon-button (click)="logOut()"><span class="glyphicon glyphicon-remove close-icon"> </span></button>
             <!-- <button (click)="logOut()" mat-raised-button color="basic" routerLink='/home'>
                 <mat-icon class="icon-log">close</mat-icon>
             </button> -->
