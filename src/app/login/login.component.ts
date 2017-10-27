@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-//import { UserComponent } from '../user/user.component';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { Router, ActivatedRoute} from '@angular/router'
@@ -64,9 +63,10 @@ export class LoginComponent {
             }
         );
     }
-    // 
-    // sinLogin(){
-    //     localStorage.setItem('identity', JSON.stringify({"name":'BETO',"apellido":'',"email":'',"pass":''}) );
-    //     this._router.navigate(['/main']);
-    // }
+
+/*Solo para debug
+    sinLogin(){
+        localStorage.setItem('identity', JSON.stringify({"name":'BETO',"apellido":'',"email":'',"pass":''}) );
+        this._router.navigate(['/main']);
+    }*/
 }

@@ -20,7 +20,6 @@ export class SectionsComponent implements OnInit{
     public titulo: String;
     public tituloFijo: String;
     public contenido: String;
-    // public buttonFC = new FormControl('', [Validators.required]);
     public tituloFC = new FormControl('', [Validators.required]);
     public seccionFC = new FormControl('', [Validators.required]);
     public myform = new FormGroup({titulo: this.tituloFC, seccion: this.seccionFC});

@@ -18,7 +18,6 @@ export class UserComponent {
     public apellido;
     public email;
     public pass;
-    // constructor(public email: string, public password: string) { }
     constructor(
         private _userService: UserService,
         private _route: ActivatedRoute,
