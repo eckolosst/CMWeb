@@ -1,12 +1,13 @@
 <div class="content">
     <mat-toolbar id="main-nav" color="primary">
-        <img class="img-footer" src="assets/mumala3.png"> <!--routerLink='/home'> -->
+        <img class="img-footer" src="assets/mumala3.png" routerLink='/home'>
         <span class="example-spacer"></span>
         <button *ngIf="!identity" mat-raised-button color="basic" routerLink='/login'>
             <mat-icon class="icon-log">account_circle</mat-icon>Iniciar Sesión
         </button>
         <div *ngIf="identity">
-            <span>Hola {{identity.nombre}}! </span>
+            <span routerLink='/main'>Hola {{identity.nombre}}! </span>
+            <!-- <a routerLink='/main' style="text-decoration:none"><span>Hola {{identity.nombre}}! </span></a> -->
             <button mat-icon-button (click)="logOut()"><span class="glyphicon glyphicon-remove close-icon"> </span></button>
         </div>
     </mat-toolbar>

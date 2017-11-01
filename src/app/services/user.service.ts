@@ -66,7 +66,7 @@ export class UserService {
     }
 
     deleteUser(id){
-      let headers = new Headers({"Content-Type":"application/json, 'Authorization': this.getTokem()"});
+      let headers = new Headers({'Content-Type':'application/json', 'Authorization': this.getTokem()});
       let options = new RequestOptions({headers: headers});
       return this._http.delete(this.url+"/usuario/"+id,options).map(res => res.json());
     }

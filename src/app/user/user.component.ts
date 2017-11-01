@@ -4,6 +4,10 @@ import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { Sort } from '@angular/material';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig } from '@angular/material';
+import { FormControl, FormControlDirective, Validators } from '@angular/forms';
+
+const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/;
 
 @Component({
    selector: 'user',
@@ -18,6 +22,10 @@ export class UserComponent {
     public apellido;
     public email;
     public pass;
+    public nombreFC = new FormControl('', [Validators.required]);
+    public apellidoFC = new FormControl('', [Validators.required]);
+    public emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
+    public passFC = new FormControl('', [Validators.required, Validators.pattern(PASS_REGEX)]);
     constructor(
         private _userService: UserService,
         private _route: ActivatedRoute,

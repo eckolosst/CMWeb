@@ -9,12 +9,11 @@
                 <mat-form-field class="campoForm">
                     <input type="email" matInput placeholder="Email" [formControl]="emailFC"
                     [(ngModel)]="user.email" >
-                    <mat-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</mat-error>
+                    <mat-error *ngIf="emailFC.hasError('pattern')">Ingrese un email válido</mat-error>
                     <mat-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                 </mat-form-field>
                 <mat-form-field class="campoForm">
-                    <input type="password"matInput placeholder="Cotraseña"[formControl]="passFC"
-                    [(ngModel)]="user.pass">
+                    <input type="password"matInput placeholder="Cotraseña" [formControl]="passFC" [(ngModel)]="user.pass">
                     <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                 </mat-form-field>
                 <button type="submit" mat-raised-button color="primary" id="subButton"

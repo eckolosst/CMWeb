@@ -1,5 +1,5 @@
 <!-- Modificarse en caso de que sea necesario editar los datos de usuario -->
-<div class="text-center row main-container">
+<div class="text-center main-container">
     <h3 class="">ADMINISTRACIÓN DE USUARIOS</h3>
     <br>
         <div class="fondito col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 ">
@@ -19,23 +19,29 @@
                   </mat-expansion-panel-header>
 
                   <mat-form-field>
-                    <input matInput placeholder="Nombre" [(ngModel)]="nombre">
+                    <input matInput placeholder="Nombre" [(ngModel)]="nombre" [formControl]="nombreFC">
+                    <mat-error *ngIf="nombreFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Apellido" [(ngModel)]="apellido">
+                    <input matInput placeholder="Apellido" [(ngModel)]="apellido" [formControl]="apellidoFC">
+                    <mat-error *ngIf="apellidoFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                   </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput placeholder="Email" [(ngModel)]="email">
+                      <input matInput placeholder="Email" [(ngModel)]="email" [formControl]="emailFC">
+                      <mat-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</mat-error>
+                      <mat-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput placeholder="Contraseña" [(ngModel)]="pass" type="password">
+                      <input matInput placeholder="Contraseña" [(ngModel)]="pass" type="password" [formControl]="passFC">
+                      <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
 
                     <mat-action-row>
-                      <button mat-raised-button color="accent" (click)="crearUsuario()">Agregar</button>
+                      <button mat-raised-button color="accent" (click)="crearUsuario()"
+                      [disabled]="!nombreFC.valid || !apellidoFC.valid || !emailFC.valid || !passFC.valid">Agregar</button>
                     </mat-action-row>
                 </mat-expansion-panel>
             </div>
@@ -66,5 +72,11 @@
             <div class="col-lg-12">
                 <button type="button" (click)="atras()" mat-raised-button color="primary">Volver</button>
             </div>
+            <br>
+            <br>
+        </div>
+        <div class="col-lg-12">
+            <br>
+            <br>
         </div>
 </div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
-import { Router, ActivatedRoute} from '@angular/router'
+import { Router, ActivatedRoute} from '@angular/router';
 import { FormControl, FormControlDirective, Validators } from '@angular/forms';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
