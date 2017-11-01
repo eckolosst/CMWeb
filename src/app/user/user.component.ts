@@ -62,7 +62,7 @@ export class UserComponent {
 
     crearUsuario(){
         let data = new User(this.email, this.pass, this.nombre, this.apellido);
-        this._userService.createUser(data).subscribe(
+        this._userService.register(data).subscribe(
             result =>{
                 this.snackBar.open("Usuario creado con éxito!", null,{
                   duration: 4000,
