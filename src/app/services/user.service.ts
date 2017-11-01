@@ -17,7 +17,6 @@ export class UserService {
     register(user_to_register){
         let params = JSON.stringify(user_to_register);
         let headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getTokem()});
-        console.log(headers);
         return this._http.post(this.url+'/registro/', params, {headers:headers})
                          .map(res => res.json());
     }
@@ -66,14 +65,8 @@ export class UserService {
         return this._http.get(this.url+'/usuario', {headers:headers}).map(res => res.json());
     }
 
-    createUser(data){
-      let params = JSON.stringify(data);
-      let headers = new Headers({"Content-Type":"application/json"});
-      return this._http.post(this.url+"/registro",params,{headers: headers}).map(res => res.json());
-    }
-
     deleteUser(id){
-      let headers = new Headers({"Content-Type":"application/json"});
+      let headers = new Headers({"Content-Type":"application/json, 'Authorization': this.getTokem()"});
       let options = new RequestOptions({headers: headers});
       return this._http.delete(this.url+"/usuario/"+id,options).map(res => res.json());
     }

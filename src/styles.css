@@ -17,6 +17,14 @@ h3{
     background-color: #7b1fa2;
     /*padding-top: 18px;*/
 }
+@media only screen and (min-width: 1920px){
+    .footer{
+        height: 8%;
+    }
+    .main-container{
+        height: 85% !important;
+    }
+}
 .footer div p{
     color: #c0c0c0;
 }
@@ -133,10 +141,11 @@ h3{
     padding: 8px;
     background-color: white;
 }
-#main-container{
-    position: absolute;
-    height: 79.5%;
-    width: 100%
+.main-container{
+    position: fixed;
+    height: 81%;
+    width: 100%;
+    overflow: auto;
 }
 
 /*Sidenav con scroll*/
