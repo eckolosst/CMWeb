@@ -1,4 +1,7 @@
-<div class="main-container">
+<div *ngIf="secciones == null" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-container" *ngIf="secciones != null">
     <mat-sidenav-container class="example-sidenav-fab-container">
         <mat-sidenav mode="side" opened="true">
             <div class="example-scrolling-content text-left">

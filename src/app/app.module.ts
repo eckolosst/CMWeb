@@ -24,7 +24,8 @@ import { MatToolbarModule,
          MatSnackBarModule,
          MatDialogModule,
          MatSortModule,
-         MatExpansionModule
+         MatExpansionModule,
+         MatProgressSpinnerModule
       } from '@angular/material';
 
 @NgModule({
@@ -53,6 +54,7 @@ import { MatToolbarModule,
     MatDialogModule,
     MatSortModule,
     MatExpansionModule,
+    MatProgressSpinnerModule,
     QuillModule,
     QRCodeModule,
     routing

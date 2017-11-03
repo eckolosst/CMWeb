@@ -9,7 +9,7 @@
             </div>
             <br>
             <div>
-                <mat-expansion-panel>
+                <mat-expansion-panel #panelUsuario>
                   <mat-expansion-panel-header>
                     <mat-panel-title>
                       + Crear Usuario
@@ -19,28 +19,28 @@
                   </mat-expansion-panel-header>
 
                   <mat-form-field>
-                    <input matInput placeholder="Nombre" [(ngModel)]="nombre" [formControl]="nombreFC">
+                    <input matInput placeholder="Nombre" [(ngModel)]="user.nombre" [formControl]="nombreFC">
                     <mat-error *ngIf="nombreFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                   </mat-form-field>
 
                   <mat-form-field>
-                    <input matInput placeholder="Apellido" [(ngModel)]="apellido" [formControl]="apellidoFC">
+                    <input matInput placeholder="Apellido" [(ngModel)]="user.apellido" [formControl]="apellidoFC">
                     <mat-error *ngIf="apellidoFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                   </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput placeholder="Email" [(ngModel)]="email" [formControl]="emailFC">
+                      <input matInput placeholder="Email" [(ngModel)]="user.email" [formControl]="emailFC">
                       <mat-error *ngIf="emailFC.hasError('pattern')">Ingrese un email valido</mat-error>
                       <mat-error *ngIf="emailFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
 
                     <mat-form-field>
-                      <input matInput placeholder="Contraseña" [(ngModel)]="pass" type="password" [formControl]="passFC">
+                      <input matInput placeholder="Contraseña" [(ngModel)]="user.pass" type="password" [formControl]="passFC">
                       <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
 
                     <mat-action-row>
-                      <button mat-raised-button color="accent" (click)="crearUsuario()"
+                      <button mat-raised-button color="accent" (click)="crearUsuario(); panelUsuario.expanded = false"
                       [disabled]="!nombreFC.valid || !apellidoFC.valid || !emailFC.valid || !passFC.valid">Agregar</button>
                     </mat-action-row>
                 </mat-expansion-panel>

@@ -18,10 +18,7 @@ const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$/;
 export class UserComponent {
     public users;
     public sortedData;
-    public nombre;
-    public apellido;
-    public email;
-    public pass;
+    public user: User = new User("","","","");
     public nombreFC = new FormControl('', [Validators.required]);
     public apellidoFC = new FormControl('', [Validators.required]);
     public emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
@@ -69,8 +66,7 @@ export class UserComponent {
     }
 
     crearUsuario(){
-        let data = new User(this.email, this.pass, this.nombre, this.apellido);
-        this._userService.register(data).subscribe(
+        this._userService.register(this.user).subscribe(
             result =>{
                 console.log(result);
                 this.snackBar.open("Usuario creado con éxito!", null,{
@@ -80,6 +76,11 @@ export class UserComponent {
                   extraClasses: ['success-snackbar']
                 });
                 this.cargar();
+                // this.user = new User("","","","");
+                this.nombreFC = new FormControl('', [Validators.required]);
+                this.apellidoFC = new FormControl('', [Validators.required]);
+                this.emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
+                this.passFC = new FormControl('', [Validators.required, Validators.pattern(PASS_REGEX)]);
             },
             error =>{
                 console.log(<any>error);
