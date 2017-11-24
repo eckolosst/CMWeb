@@ -1,0 +1,42 @@
+<div *ngIf="secciones == null" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-container" *ngIf="secciones != null">
+        <h3 class="text-center">ORDENANDO SECCIONES</h3>
+        <div *ngIf="seleccion == -1" class="col-md-10 col-md-offset-1 fondo">
+
+          <h2>Drag / drop the item</h2>
+          <div [sortablejs]="secciones">
+            <div *ngFor="let item of secciones">{{ item.tituloBtn }}</div>
+          </div>
+
+          <hr>
+
+          <h2>See the result</h2>
+          <div>
+            <div *ngFor="let item of secciones">{{ item.tituloBtn }}</div>
+          </div>
+
+          <!-- <div class="col-md-5 col-md-offset-1 lista">
+            <p>Clickeá y arrastrá cada sección para definir un orden.</p>
+            <ul [sortablejs]="secciones" class="orden-list list-group">
+              <li *ngFor="let item of secciones" class="list-group-item">{{item.tituloBtn}}</li>
+            </ul>
+          </div> -->
+
+          <!-- <div class="col-md-5 col-md-offset-1 lista">
+            <p>Ordenar Aquí</p>
+            <h2>See the result</h2>
+            <div>
+              <div *ngFor="let item of secciones">{{ item.tituloBtn }}</div>
+            </div>
+          </div> -->
+
+          <div class="col-md-12 text-center">
+              <br>
+              <button type="button" (click)="atras()" mat-raised-button color="primary">Atrás</button>
+              <br>
+          </div>
+          <br>
+        </div>
+</div>

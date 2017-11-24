@@ -15,7 +15,7 @@ export class DataService{
     this.url = GLOBAL.url;
   }
   public token;
-  
+
   getTokem(){
       let tokenIn = localStorage.getItem('token');
       if(tokenIn != 'undefined'){
@@ -51,5 +51,9 @@ export class DataService{
     let params = JSON.stringify(data);
     let headers = new Headers({"Content-Type":"application/json", 'Authorization': this.getTokem()});
     return this._http.post(this.url+"/seccion",params,{headers: headers}).map(res => res.json());
+  }
+  getInfo(){
+    let headers = new Headers({"Content-Type":"application/json"});
+    return this._http.get(this.url+"/secciones",{headers: headers}).map(res => res.json());
   }
 }

@@ -10,8 +10,12 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
 import { SectionsComponent } from './sections/sections.component';
+import { InfoComponent } from './info/info.component';
+import { OrdenComponent } from './orden/orden.component';
+import { RegistroComponent } from './registro/registro.component';
 import { HttpModule } from '@angular/http';
 import { QRCodeModule } from 'angular2-qrcode';
+import { SortablejsModule } from 'angular-sortablejs';
 
 // Angular Material
 import { MatToolbarModule,
@@ -25,7 +29,8 @@ import { MatToolbarModule,
          MatDialogModule,
          MatSortModule,
          MatExpansionModule,
-         MatProgressSpinnerModule
+         MatProgressSpinnerModule,
+         MatChipsModule
       } from '@angular/material';
 
 @NgModule({
@@ -35,7 +40,10 @@ import { MatToolbarModule,
     LoginComponent,
     UserComponent,
     MainComponent,
-    SectionsComponent
+    SectionsComponent,
+    InfoComponent,
+    OrdenComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +63,10 @@ import { MatToolbarModule,
     MatSortModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatChipsModule,
     QuillModule,
     QRCodeModule,
+    SortablejsModule.forRoot({ animation: 150 }),
     routing
   ],
   providers: [appRoutingProviders],

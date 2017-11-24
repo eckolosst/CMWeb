@@ -50,8 +50,7 @@ export class SectionsComponent implements OnInit{
         );
     }
 
-    // Encargado de tomar los datos del formulario para modificar una sección existente o crear una nueva
-    // dependiendo del valor this.nueva
+
     setSeccion() {
         // console.log(this.contenido);
 
@@ -162,5 +161,13 @@ export class SectionsComponent implements OnInit{
 
     atras(){
         this._router.navigate(['/main']);
+    }
+
+    ordenar(){
+        this._router.navigate(['/orden']);
+    }
+
+    vigilar(){
+        this._router.navigate(['/registro']);
     }
 }

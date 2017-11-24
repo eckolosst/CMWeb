@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import '~@angular/material/prebuilt-themes/purple-green.css';
 
 body, html{
@@ -8,6 +9,7 @@ body, html{
 }
 h3{
     font-size: 34px !important;
+    font-family: 'Open Sans', sans-serif !important;
 }
 .footer{
     position: absolute;
@@ -66,15 +68,34 @@ h3{
     float:right;
     padding: 6px;
     height: 100%;
+    cursor: pointer;
+}
+.chip-name{
+  cursor: pointer !important;
+  background-color: #424242 !important;
 }
 .close-icon{
-    top: -2px !important;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 24px;
+    font-weight: black;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .2;
+    color: #d2d2d2;
+    text-shadow: 0 1px 0 #222;
+}
+.mumala-title{
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 14px;
+    text-align: center;
+    font-style: oblique;
+    line-height: initial;
+}
+@media only screen and (max-width : 600px) {
+  .mumala-title{
+    visibility: hidden;
+  }
+}
+.boton{
+  margin-left: 25px !important;
 }
 /*-----------------------------------------------------------------------------*/
 /*                                    HOME                                     */
@@ -196,7 +217,7 @@ mat-sidenav-content{
     font-size: 16px;
 }
 .instrucciones ol li{
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .success-snackbar{
     background-color: #424242 !important;
@@ -222,3 +243,39 @@ mat-sidenav-content{
     text-decoration: underline;
     margin-left: -20px;
 }
+
+/*-----------------------------------------------------------------------------*/
+/*                                   INFO                                      */
+/*-----------------------------------------------------------------------------*/
+.card-style{
+  /*min-height: 136px !important;*/
+  margin: 10px;
+}
+.fondo-info{
+    background-color: #201f1f;
+    padding: 20px;
+}
+.texto-info{
+    font-size: 14px;
+    text-align: justify;
+    padding: 25px;
+    /*background-color: #303030*/
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                                   ORDEN                                     */
+/*-----------------------------------------------------------------------------*/
+.orden-list{
+    color: black !important;
+}
+.orden{
+    min-height: 30px;
+}
+.lista{
+  background-color: #434343;
+  padding: 15px;
+}
+
+/*-----------------------------------------------------------------------------*/
+/*                                   REGISTRO                                  */
+/*-----------------------------------------------------------------------------*/

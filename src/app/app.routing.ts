@@ -7,6 +7,10 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { MainComponent } from './main/main.component';
 import { SectionsComponent } from './sections/sections.component';
+import { InfoComponent } from './info/info.component';
+import { OrdenComponent } from './orden/orden.component';
+import { RegistroComponent } from './registro/registro.component';
+
 // import { ErrorComponent } from './error/error.component';
 
 //Definimos el arreglo qye relaciona el path con el componente que llama
@@ -18,6 +22,9 @@ const appRoutes: Routes = [
    {path: 'user',component: UserComponent},
    {path: 'main',component: MainComponent},
    {path: 'sections',component: SectionsComponent},
+   {path: 'info',component: InfoComponent},
+   {path: 'orden',component: OrdenComponent},
+   {path: 'registro', component: RegistroComponent}
    // {path: '**',component: ErrorComponent}
 ];
 

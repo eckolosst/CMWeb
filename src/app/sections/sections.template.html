@@ -40,8 +40,8 @@
                             </li>
                             <li class="col-md-4">LISTAS
                                 <ul class="sin-style">
-                                    <li><mat-icon class="icon-log pad">format_list_bulleted</mat-icon> Numerada</li>
-                                    <li><mat-icon class="icon-log pad">format_list_numbered</mat-icon> No Numerada</li>
+                                    <li><mat-icon class="icon-log pad">format_list_bulleted</mat-icon> No Numerada</li>
+                                    <li><p><mat-icon class="icon-log pad">format_list_numbered</mat-icon> Numerada</p></li>
                                 </ul>
                             </li>
                             <li class="col-md-4">MULTIMEDIA
@@ -55,9 +55,12 @@
                     </li>
                 </ol>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
                 <br>
-                <button type="button" (click)="atras()" mat-raised-button color="primary">Volver</button>
+                <button type="button" (click)="ordenar()" mat-raised-button color="accent">Ordenar Secciones</button>
+                <button type="button" (click)="vigilar()" mat-raised-button color="accent">Ver Registro de Cambios</button>
+                <button type="button" (click)="atras()" mat-raised-button color="primary">Atrás</button>
+                <br>
             </div>
         </div>
 
@@ -80,7 +83,6 @@
                     <button type="submit" mat-raised-button color="accent" id="subButton" [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
                     <button type="button" (click)="back()" mat-raised-button color="primary">Cancelar</button>
                     <button type="button" (click)="delete()" *ngIf="seleccion != -2" mat-raised-button color="warn">Eliminar</button>
-
                 </form>
                 <br>
             </div>

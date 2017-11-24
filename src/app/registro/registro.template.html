@@ -1,0 +1,33 @@
+<div *ngIf="secciones == null" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
+<div class="main-container" *ngIf="secciones != null">
+        <div *ngIf="seleccion == -1">
+          <h3 class="text-center">REGISTRO DE CAMBIOS</h3>
+          <br>
+          <h2 class="text-center">PROXIMAMENTE!</h2>
+        </div>
+
+
+        <h2>Drag / drop the item</h2>
+        <div [sortablejs]="secciones">
+          <div *ngFor="let item of secciones">{{ item.tituloBtn }}</div>
+        </div>
+
+        <hr>
+
+        <h2>See the result</h2>
+        <div>
+          <div *ngFor="let item of secciones">{{ item.tituloBtn }}</div>
+        </div>
+
+
+        <div class="col-md-12 text-center">
+            <br>
+            <button type="button" (click)="atras()" mat-raised-button color="primary">Atrás</button>
+            <br>
+            <br>
+            <br>
+        </div>
+
+</div>
