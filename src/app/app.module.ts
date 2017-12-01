@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
+import { EditComponent } from './user/edit.component';
 import { MainComponent } from './main/main.component';
 import { SectionsComponent } from './sections/sections.component';
 import { InfoComponent } from './info/info.component';
@@ -43,7 +44,8 @@ import { MatToolbarModule,
     SectionsComponent,
     InfoComponent,
     OrdenComponent,
-    RegistroComponent
+    RegistroComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
@@ -66,10 +68,11 @@ import { MatToolbarModule,
     MatChipsModule,
     QuillModule,
     QRCodeModule,
-    SortablejsModule.forRoot({ animation: 150 }),
+    SortablejsModule,
     routing
   ],
   providers: [appRoutingProviders],
+  entryComponents:[EditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

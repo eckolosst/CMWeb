@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { Sort } from '@angular/material';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { FormControl, FormControlDirective, Validators } from '@angular/forms';
+import { EditComponent } from './edit.component';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,15}$/;
@@ -17,6 +19,7 @@ const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,15}$/;
 
 export class UserComponent {
     public users;
+    public userForm;
     public sortedData;
     public user: User = new User("","","","");
     public nombreFC = new FormControl('', [Validators.required]);
@@ -28,6 +31,7 @@ export class UserComponent {
         private _route: ActivatedRoute,
         private _router: Router,
         public snackBar: MatSnackBar,
+        public dialog: MatDialog
     ) {}
 
     ngOnInit():void{
@@ -118,9 +122,21 @@ export class UserComponent {
         );
     }
 
+    editar(data): void {
+      this.userForm =  this.users[data];
+      let dialogRef = this.dialog.open(EditComponent, {
+        data: { nombre: this.userForm.nombre, apellido: this.userForm.apellido, pass: this.userForm.pass, id: this.userForm._id }
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.cargar();
+      });
+    }
+
     atras(){
         this._router.navigate(['/main']);
     }
+
 }
 
 function compare(a, b, isAsc) {

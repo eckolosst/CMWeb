@@ -38,7 +38,7 @@
                       <input matInput placeholder="Contraseña" [(ngModel)]="user.pass" type="password" [formControl]="passFC">
                       <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
                     </mat-form-field>
-                    <p>
+                    <p class="nota-user">
                       Nota: la contraseña debe tener entre 4 y 15 letras y contener al menos una mayúscula y un dígito.
                     </p>
                     <mat-action-row>
@@ -66,6 +66,7 @@
                     <td>{{user.email}}</td>
                     <td class="derecha" >
                         <!-- Con la siguiente condición se preserva el usuario Administrador original -->
+                        <button *ngIf="user.email!='admin@email.com'" mat-raised-button type="button" name="button" color="accent" (click)="editar(i)">Editar</button>
                         <button *ngIf="user.email!='admin@email.com'" mat-raised-button type="button" name="button" color="warn" (click)="eliminarUsuario(i)">Eliminar</button>
                     </td>
                   </tr>

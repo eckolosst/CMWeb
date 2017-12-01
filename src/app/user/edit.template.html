@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Edita tus datos</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Nombre" [(ngModel)]="data.nombre" [formControl]="nombreFC">
+    <mat-error *ngIf="nombreFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Apellido" [(ngModel)]="data.apellido" [formControl]="apellidoFC">
+    <mat-error *ngIf="apellidoFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+  </mat-form-field>
+  <br>
+  <button mat-raised-button (click)="changePass()" color="primary">Cambiar Contraseña</button>
+  <mat-form-field *ngIf="pass" class="pull-right">
+    <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" [formControl]="passFC">
+    <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+  </mat-form-field>
+</div>
+<div class="text-center">
+  <br>
+  <button *ngIf="pass" mat-raised-button (click)="editar()" color="accent"
+  [disabled]="!nombreFC.valid || !apellidoFC.valid || !passFC.valid">Editar</button>
+  <button *ngIf="!pass" mat-raised-button (click)="editar()" color="accent"
+  [disabled]="!nombreFC.valid || !apellidoFC.valid">Editar</button>
+  <button mat-raised-button (click)="onNoClick()" color="warn">Cancelar</button>
+</div>

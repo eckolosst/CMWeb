@@ -15,7 +15,7 @@ import { DataService } from '../services/data.service';
 })
 
 export class SectionsComponent implements OnInit{
-    public secciones;
+    public secciones: any[];
     public seleccion;
     public titulo: String;
     public tituloFijo: String;
@@ -55,11 +55,11 @@ export class SectionsComponent implements OnInit{
         // console.log(this.contenido);
 
         // Toma los valores del formulario
-        var data = new Seccion(this.titulo, this.contenido, this.titulo);
+        var data = new Seccion(this.titulo, this.contenido, this.titulo, null);
 
         if(this.seleccion!=-2){
             let id = this.secciones[this.seleccion]._id;
-
+            data.orden = this.secciones[this.seleccion].orden;
             this._dataService.editSeccion(id, data).subscribe(
                 result =>{
                     this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  actualizada con éxito!")
@@ -77,6 +77,7 @@ export class SectionsComponent implements OnInit{
             );
         }
         else{
+            data.orden = this.secciones.length+1;
             this._dataService.createSeccion(data).subscribe(
                 result =>{
                     this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  creada con éxito!")
@@ -163,11 +164,4 @@ export class SectionsComponent implements OnInit{
         this._router.navigate(['/main']);
     }
 
-    ordenar(){
-        this._router.navigate(['/orden']);
-    }
-
-    vigilar(){
-        this._router.navigate(['/registro']);
-    }
 }

@@ -70,4 +70,10 @@ export class UserService {
       let options = new RequestOptions({headers: headers});
       return this._http.delete(this.url+"/usuario/"+id,options).map(res => res.json());
     }
+
+    changeUser(id, data){
+      console.log(data);
+      let headers = new Headers({"Content-Type":"application/json", 'Authorization': this.getTokem()});
+      return this._http.put(this.url+"/usuario/"+id,data,{headers: headers}).map(res => res.json());
+    }
 }

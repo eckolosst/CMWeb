@@ -129,6 +129,13 @@ h3{
     background-color: #201f1f;
     padding: 10px;
 }
+.nota-user{
+    text-align: left;
+    font-style: oblique;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #f44336;
+}
 /*-----------------------------------------------------------------------------*/
 /*                                      MAIN                                   */
 /*-----------------------------------------------------------------------------*/
@@ -151,6 +158,24 @@ h3{
 .fondo{
     background-color: #201f1f;
     padding: 40px;
+}
+.main-list{
+  list-style: none;
+  text-align: center;
+}
+.main-list li{
+  margin-bottom: 5px;
+  background-color: #424242;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 16px;
+}
+.main-list li a{
+  text-decoration: none;
+  color: white;
+}
+.main-list :hover{
+  background-color: #303030
 }
 /*-----------------------------------------------------------------------------*/
 /*                                  SECTIONS                                   */
@@ -224,7 +249,10 @@ mat-sidenav-content{
     color: white !important;
     font-style: oblique;
     text-align: center;
+    display: block !important;
+    margin:auto !important;
 }
+
 .sin-style{
     list-style: none;
     margin-left: -40px;
@@ -267,6 +295,11 @@ mat-sidenav-content{
 /*-----------------------------------------------------------------------------*/
 .orden-list{
     color: black !important;
+    cursor: pointer;
+}
+.orden-list :hover{
+   background-color: gray;
+   color: white;
 }
 .orden{
     min-height: 30px;
@@ -274,6 +307,11 @@ mat-sidenav-content{
 .lista{
   background-color: #434343;
   padding: 15px;
+}
+.cruz{
+  float: right;
+  margin-top: 2px;
+  cursor: pointer;
 }
 
 /*-----------------------------------------------------------------------------*/

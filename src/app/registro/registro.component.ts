@@ -40,7 +40,7 @@ export class RegistroComponent implements OnInit{
 
     // Regresa
     atras(){
-        this._router.navigate(['/sections']);
+        this._router.navigate(['/main']);
     }
 
 }
