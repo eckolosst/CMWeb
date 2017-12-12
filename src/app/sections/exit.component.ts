@@ -10,7 +10,7 @@ const PASS_REGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,15}$/;
   selector: 'exit',
   template: `<h1 mat-dialog-title>Eliminar Sección</h1>
             <div mat-dialog-content>
-              <p>¿Realmente Desea Eliminar la Sección <b>{{name}}</b>?</p>
+              <p>¿Realmente Desea Eliminar la Sección <br><b>{{data.name}}</b>?</p>
             </div>
             <div class="text-center">
               <br>
@@ -28,7 +28,7 @@ export class ExitComponent {
 
 
   eliminar(){
-    let id = this.data;
+    let id = this.data.id;
     this._dataService.deleteSeccion(id).subscribe(
         result =>{
             this.dialogRef.close();

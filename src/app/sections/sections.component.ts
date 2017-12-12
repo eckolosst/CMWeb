@@ -133,32 +133,27 @@ export class SectionsComponent implements OnInit{
     }
 
     // Elimina una sección
-    // delete(){
-    //     let id = this.secciones[this.seleccion]._id;
-    //
-    //     this._dataService.deleteSeccion(id).subscribe(
-    //         result =>{
-    //             this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  eliminada con éxito!");
-    //             //Hace que vuelva al "Panel Principal"
-    //             this.seleccion = -1;
-    //             //Recarga la lista de secciones, ver si se puede hacer de otra manera
-    //             this.cargar();
-    //             //Evita error en el Editor cuando cambio de sección.
-    //             this.seccionFC = new FormControl('', [Validators.required]);
-    //         },
-    //         error =>{
-    //             console.log(<any>error);
-    //             this.createSnackBar("Error al Eliminar la Sección.")
-    //         }
-    //     );
-    // }
-
-    delete(id): void {
-      let dialogRef = this.dialog.open(ExitComponent, {id});
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.cargar();
+    delete(): void {
+      let id = this.secciones[this.seleccion]._id;
+      let dialogRef = this.dialog.open(ExitComponent, {
+        data: {id: id, name: this.secciones[this.seleccion].tituloBtn}
       });
+
+      dialogRef.afterClosed().subscribe(
+        result => {
+          this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  eliminada con éxito!");
+          //Hace que vuelva al "Panel Principal"
+          this.seleccion = -1;
+          //Recarga la lista de secciones, ver si se puede hacer de otra manera
+          this.cargar();
+          //Evita error en el Editor cuando cambio de sección.
+          this.seccionFC = new FormControl('', [Validators.required]);
+        },
+        error =>{
+            console.log(<any>error);
+            this.createSnackBar("Error al Eliminar la Sección.")
+        }
+      );
     }
 
     // Muestra un mensaje
