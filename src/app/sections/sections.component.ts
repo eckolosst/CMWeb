@@ -6,6 +6,8 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 declare var $: any;
 import { Seccion } from '../models/seccion';
 import { DataService } from '../services/data.service';
+import { ExitComponent } from './exit.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 
 @Component({
@@ -29,7 +31,8 @@ export class SectionsComponent implements OnInit{
         private _route: ActivatedRoute,
         private _router: Router,
         public snackBar: MatSnackBar,
-        private _dataService: DataService
+        private _dataService: DataService,
+        public dialog: MatDialog
     ){
         this.seleccion = -1;
     }
@@ -130,24 +133,32 @@ export class SectionsComponent implements OnInit{
     }
 
     // Elimina una sección
-    delete(){
-        let id = this.secciones[this.seleccion]._id;
+    // delete(){
+    //     let id = this.secciones[this.seleccion]._id;
+    //
+    //     this._dataService.deleteSeccion(id).subscribe(
+    //         result =>{
+    //             this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  eliminada con éxito!");
+    //             //Hace que vuelva al "Panel Principal"
+    //             this.seleccion = -1;
+    //             //Recarga la lista de secciones, ver si se puede hacer de otra manera
+    //             this.cargar();
+    //             //Evita error en el Editor cuando cambio de sección.
+    //             this.seccionFC = new FormControl('', [Validators.required]);
+    //         },
+    //         error =>{
+    //             console.log(<any>error);
+    //             this.createSnackBar("Error al Eliminar la Sección.")
+    //         }
+    //     );
+    // }
 
-        this._dataService.deleteSeccion(id).subscribe(
-            result =>{
-                this.createSnackBar("Sección  "+this.tituloFijo.toUpperCase()+"  eliminada con éxito!");
-                //Hace que vuelva al "Panel Principal"
-                this.seleccion = -1;
-                //Recarga la lista de secciones, ver si se puede hacer de otra manera
-                this.cargar();
-                //Evita error en el Editor cuando cambio de sección.
-                this.seccionFC = new FormControl('', [Validators.required]);
-            },
-            error =>{
-                console.log(<any>error);
-                this.createSnackBar("Error al Eliminar la Sección.")
-            }
-        );
+    delete(id): void {
+      let dialogRef = this.dialog.open(ExitComponent, {id});
+
+      dialogRef.afterClosed().subscribe(result => {
+        this.cargar();
+      });
     }
 
     // Muestra un mensaje

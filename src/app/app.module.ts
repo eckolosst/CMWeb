@@ -11,6 +11,7 @@ import { UserComponent } from './user/user.component';
 import { EditComponent } from './user/edit.component';
 import { MainComponent } from './main/main.component';
 import { SectionsComponent } from './sections/sections.component';
+import { ExitComponent } from './sections/exit.component';
 import { InfoComponent } from './info/info.component';
 import { OrdenComponent } from './orden/orden.component';
 import { RegistroComponent } from './registro/registro.component';
@@ -45,7 +46,8 @@ import { MatToolbarModule,
     InfoComponent,
     OrdenComponent,
     RegistroComponent,
-    EditComponent
+    EditComponent,
+    ExitComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +74,7 @@ import { MatToolbarModule,
     routing
   ],
   providers: [appRoutingProviders],
-  entryComponents:[EditComponent],
+  entryComponents:[EditComponent, ExitComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
