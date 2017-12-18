@@ -51,8 +51,7 @@ export class OrdenComponent implements OnInit{
         let ver = 1;
         for(let i=0; i<this.seccionesNew.length;i++){
           if(this.secciones[i]._id != this.seccionesNew[i]._id){
-            this.seccionesNew[i].orden = i+1;
-            this._dataService.editSeccion(this.seccionesNew[i]._id,this.seccionesNew[i]).subscribe(
+            this._dataService.editSeccion(this.seccionesNew[i]._id,{orden: i+1}).subscribe(
                 result =>{
                     ver = ver * 1;
                 },
