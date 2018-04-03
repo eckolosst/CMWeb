@@ -21,7 +21,7 @@ export class UserComponent {
     public users;
     public userForm;
     public sortedData;
-    public user: User = new User("","","","");
+    public user: User = new User("","","","","admin",[]);
     public nombreFC = new FormControl('', [Validators.required]);
     public apellidoFC = new FormControl('', [Validators.required]);
     public emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);
@@ -72,7 +72,7 @@ export class UserComponent {
     crearUsuario(){
         this._userService.register(this.user).subscribe(
             result =>{
-                console.log(result);
+                // console.log(result);
                 this.snackBar.open("Usuario creado con éxito!", null,{
                   duration: 4000,
                   horizontalPosition: 'center',
@@ -80,7 +80,7 @@ export class UserComponent {
                   extraClasses: ['success-snackbar']
                 });
                 this.cargar();
-                // this.user = new User("","","","");
+                // this.user = new User("","","","",[]);
                 this.nombreFC = new FormControl('', [Validators.required]);
                 this.apellidoFC = new FormControl('', [Validators.required]);
                 this.emailFC = new FormControl('', [Validators.required, Validators.pattern(EMAIL_REGEX)]);

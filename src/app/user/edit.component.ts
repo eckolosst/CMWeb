@@ -31,6 +31,7 @@ export class EditComponent {
   editar(){
     let id = this.data.id;
     delete this.data.id;
+    this.data.rol = "admin";
     if(this.pass)
       this.data.pass = this.password;
     else
@@ -54,5 +55,10 @@ export class EditComponent {
     else{
         this.pass = true;
     }
+  }
+
+  verificarUsuario(e){
+    var id = JSON.parse(localStorage.getItem('identity'));
+    return id._id == e
   }
 }

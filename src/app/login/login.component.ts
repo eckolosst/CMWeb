@@ -24,11 +24,8 @@ export class LoginComponent {
         private _userService: UserService,
         private _route: ActivatedRoute,
         private _router: Router) {
-            this.user = new User('','','','');
+            this.user = new User('','','','','',[]);
         }
-
-    ngOnInit(){
-    }
 
     login() {
         //Logueo de usuario y obtencion del objeto

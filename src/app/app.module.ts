@@ -18,7 +18,9 @@ import { RegistroComponent } from './registro/registro.component';
 import { HttpModule } from '@angular/http';
 import { QRCodeModule } from 'angular2-qrcode';
 import { SortablejsModule } from 'angular-sortablejs';
-
+import { SeguimientoComponent } from './seguimiento/seguimiento.component';
+import { AgmCoreModule } from '@agm/core';
+import { SimpleTimer } from 'ng2-simple-timer';
 // Angular Material
 import { MatToolbarModule,
          MatInputModule,
@@ -47,7 +49,8 @@ import { MatToolbarModule,
     OrdenComponent,
     RegistroComponent,
     EditComponent,
-    ExitComponent
+    ExitComponent,
+    SeguimientoComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,9 +74,12 @@ import { MatToolbarModule,
     QuillModule,
     QRCodeModule,
     SortablejsModule,
-    routing
+    routing,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC81FuZ7Bz6ReQVNPPMqOeU2Yi9N91g50w'
+    })
   ],
-  providers: [appRoutingProviders],
+  providers: [appRoutingProviders, SimpleTimer],
   entryComponents:[EditComponent, ExitComponent],
   bootstrap: [AppComponent]
 })

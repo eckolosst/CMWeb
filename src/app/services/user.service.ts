@@ -27,7 +27,7 @@ export class UserService {
         }
         let params = JSON.stringify(user_to_login);
         let headers =  new Headers({'Content-Type': 'application/json'});
-        return  this._http.post(this.url+'/usuarioLog/', params, {headers:headers})
+        return  this._http.post(this.url+'/usuarioLog/web', params, {headers:headers})
                           .map(res => res.json());
     }
 
@@ -65,6 +65,11 @@ export class UserService {
         return this._http.get(this.url+'/usuario', {headers:headers}).map(res => res.json());
     }
 
+    getSeguimiento(id){
+        let headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getTokem()});
+        return this._http.get(this.url+'/seguimiento/'+id, {headers:headers}).map(res => res.json());
+    }
+
     deleteUser(id){
       let headers = new Headers({'Content-Type':'application/json', 'Authorization': this.getTokem()});
       let options = new RequestOptions({headers: headers});
@@ -72,7 +77,6 @@ export class UserService {
     }
 
     changeUser(id, data){
-      console.log(data);
       let headers = new Headers({"Content-Type":"application/json", 'Authorization': this.getTokem()});
       return this._http.put(this.url+"/usuario/"+id,data,{headers: headers}).map(res => res.json());
     }

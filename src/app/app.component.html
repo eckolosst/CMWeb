@@ -4,7 +4,7 @@
         <span class="mumala-title">Mujeres de la Matria <br>Latinoamericana</span>
         <span class="example-spacer"></span>
         <button class="boton" mat-raised-button color="basic" routerLink='/info'>
-            <mat-icon class="icon-log">info</mat-icon>Informate
+            <mat-icon class="icon-log">info</mat-icon><span class="hidden-sm hidden-xs">Informate</span>
         </button>
         <button class="boton" *ngIf="!identity" mat-raised-button color="basic" routerLink='/login'>
             <mat-icon class="icon-log">account_circle</mat-icon>Iniciar Sesión
@@ -19,13 +19,3 @@
     </mat-toolbar>
     <router-outlet></router-outlet>
 </div>
-
-<footer class="footer">
-    <ul id="contactos" class="pull-right">
-        <li><b>Contactanos: </b></li>
-        <li><a href="https://twitter.com/mumalaneuquen" target="_blank"><img src="assets/footer/tw-mn.png"></a></li>
-        <li><a href="https://www.instagram.com/mumalaneuquen/"><img src="assets/footer/ig-mn2.png"></a></li>
-        <li><a href="http://mumalaneuquen.blogspot.com.ar/" target="_blank"><img src="assets/footer/bg-mn.png"></a></li>
-        <li><a href="https://www.facebook.com/MumalaNeuquenCapital/" target="_blank"><img src="assets/footer/fb-mn.png"></a></li>
-    </ul>
-</footer>

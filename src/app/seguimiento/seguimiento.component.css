@@ -1,0 +1,49 @@
+agm-map {
+  height: 500px;
+  width: 90%;
+  margin-left:7%;
+  padding-top: 15px;
+  display: flex;
+}
+@media only screen and (max-width : 1000px) {
+  agm-map {
+    height: 400px;
+    width: 100%;
+    margin-left: 0px;
+  }
+}
+:host, google-map {
+  display:block;
+  width: inherit;
+  height: inherit
+}
+strong{
+  color: black !important;
+  font-variant: small-caps;
+  font-size: 16px;
+}
+#referencias{
+  padding-top: 10%;
+  padding-left: 2.5%;
+}
+#referencias div{
+  background-color: #ccc;
+  border-radius: 5px;
+  border: 1px solid black;
+  color: black;
+  padding: 10px;
+}
+#referencias ul{
+  padding: 15px;
+  font-size: 14px;
+  margin: 1%;
+}
+#ref-list{
+  list-style: none;
+}
+#ref-list li{
+  margin-bottom: 10px;
+}
+#ref-list img{
+  margin-right: 10px;
+}

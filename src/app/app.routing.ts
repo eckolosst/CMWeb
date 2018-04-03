@@ -10,7 +10,7 @@ import { SectionsComponent } from './sections/sections.component';
 import { InfoComponent } from './info/info.component';
 import { OrdenComponent } from './orden/orden.component';
 import { RegistroComponent } from './registro/registro.component';
-
+import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 // import { ErrorComponent } from './error/error.component';
 
 //Definimos el arreglo qye relaciona el path con el componente que llama
@@ -24,7 +24,8 @@ const appRoutes: Routes = [
    {path: 'sections',component: SectionsComponent},
    {path: 'info',component: InfoComponent},
    {path: 'orden',component: OrdenComponent},
-   {path: 'registro', component: RegistroComponent}
+   {path: 'registro', component: RegistroComponent},
+   {path: 'seguimiento/:id', component: SeguimientoComponent}
    // {path: '**',component: ErrorComponent}
 ];
 

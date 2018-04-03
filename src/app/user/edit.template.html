@@ -10,11 +10,13 @@
     <mat-error *ngIf="apellidoFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
   </mat-form-field>
   <br>
-  <button mat-raised-button (click)="changePass()" color="primary">Cambiar Contraseña</button>
-  <mat-form-field *ngIf="pass" class="pull-right">
-    <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" [formControl]="passFC">
-    <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
-  </mat-form-field>
+  <div *ngIf="verificarUsuario(data.id)">
+    <button mat-raised-button (click)="changePass()" color="primary">Cambiar Contraseña</button>
+    <mat-form-field *ngIf="pass" class="pull-right">
+      <input matInput placeholder="Contraseña" [(ngModel)]="password" type="password" [formControl]="passFC">
+      <mat-error *ngIf="passFC.hasError('required')">Campo <strong>necesario</strong></mat-error>
+    </mat-form-field>
+  </div>
 </div>
 <div class="text-center">
   <br>
