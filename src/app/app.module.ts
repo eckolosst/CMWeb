@@ -19,6 +19,7 @@ import { HttpModule } from '@angular/http';
 import { QRCodeModule } from 'angular2-qrcode';
 import { SortablejsModule } from 'angular-sortablejs';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
+import { AntipanicoComponent } from './antipanico/antipanico.component';
 import { AgmCoreModule } from '@agm/core';
 import { SimpleTimer } from 'ng2-simple-timer';
 // Angular Material
@@ -51,6 +52,7 @@ import { MatToolbarModule,
     EditComponent,
     ExitComponent,
     SeguimientoComponent,
+    AntipanicoComponent
   ],
   imports: [
     BrowserModule,

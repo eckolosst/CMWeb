@@ -1,0 +1,22 @@
+<div>
+  <div class="col-md-12">
+    <agm-map
+      [latitude]="mlat"
+      [longitude]="mlng"
+      [zoom]="15"
+      [streetViewControl]="false">
+
+      <agm-marker
+          [latitude]="mlat"
+          [longitude]="mlng"
+          [markerDraggable]="false">
+      </agm-marker>
+
+      <agm-circle [latitude]="mlat" [longitude]="mlng"
+              [radius]="50"
+              [fillColor]="'red'"
+              [editable]="false">
+      </agm-circle>
+    </agm-map>
+  </div>
+</div>
