@@ -6,6 +6,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 declare var $: any;
 import { Seccion } from '../models/seccion';
 import { DataService } from '../services/data.service';
+import { UserService } from '../services/user.service';
 import { ExitComponent } from './exit.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -25,19 +26,22 @@ export class SectionsComponent implements OnInit{
     public tituloFC = new FormControl('', [Validators.required]);
     public seccionFC = new FormControl('', [Validators.required]);
     public myform = new FormGroup({titulo: this.tituloFC, seccion: this.seccionFC});
-
+    public identity;
+    public seccionMod = new Seccion("","","",null,"","");
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
         public snackBar: MatSnackBar,
         private _dataService: DataService,
+        private _userService: UserService,
         public dialog: MatDialog
     ){
         this.seleccion = -1;
     }
 
     ngOnInit():void{
+        this.identity = this._userService.getIdentity()
         this.cargar();
     }
 
@@ -55,11 +59,12 @@ export class SectionsComponent implements OnInit{
 
 
     setSeccion() {
-        // console.log(this.contenido);
+        let user_mod = this.identity.apellido.toUpperCase()+" "+this.identity.nombre;
+        let fecha_mod = new Date().toString();
 
         // Toma los valores del formulario
-        var data = new Seccion(this.titulo, this.contenido, this.titulo, null);
-
+        var data = new Seccion(this.titulo, this.contenido, this.titulo, null, fecha_mod, user_mod);
+        console.log(data)
         if(this.seleccion!=-2){
             let id = this.secciones[this.seleccion]._id;
             data.orden = this.secciones[this.seleccion].orden;
@@ -107,10 +112,10 @@ export class SectionsComponent implements OnInit{
 
             this._dataService.getSeccion(sec).subscribe(
                 result =>{
-                    let res = result.seccion;
-                    this.titulo=res.tituloBtn;
-                    this.tituloFijo=res.titulo;
-                    this.contenido=res.contenido;
+                    this.seccionMod = result.seccion;
+                    this.titulo=this.seccionMod.tituloBtn;
+                    this.tituloFijo=this.seccionMod.titulo;
+                    this.contenido=this.seccionMod.contenido;
                 },
                 error =>{
                     console.log(<any>error);

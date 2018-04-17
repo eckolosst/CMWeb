@@ -47,3 +47,20 @@ strong{
 #ref-list img{
   margin-right: 10px;
 }
+
+#ref-list-xs{
+  margin-left: -40px;
+  list-style: none;
+}
+#ref-list-xs li{
+  margin-bottom: 10px;
+  display: inline;
+  padding: 5px 5px;
+}
+#ref-list-xs img{
+  margin-right: 10px;
+}
+.blanco{
+  color: white !important;
+  margin-top: 10px;
+}

@@ -79,6 +79,11 @@
                     <quill-editor [formControl]="seccionFC" [(ngModel)]="contenido" [required]="true" [style]="{'background-color': 'white', 'color':'black', 'min-height':'100px'}" placeholder="Inserte texto aquí..."
                                   [modules]="{toolbar: [['bold', 'italic', 'underline', 'strike'], [{ 'list': 'ordered'}, { 'list': 'bullet' }], ['link', 'image', 'video']]}">
                     </quill-editor>
+                    <div class="margen">
+                      <i>Última modificación realizada el día <strong>{{seccionMod.fecha_mod | date:'d/M/yy'}}</strong> a las <strong>{{seccionMod.fecha_mod | date:'HH:mm'}}</strong> por <strong>{{seccionMod.user_mod}}</strong></i>
+                      <span title="Nota: esta información también se actualiza cuando se efectúa un cambio en el orden de las secciones." class="glyphicon glyphicon-info-sign aclaracion"></span>
+                    </div>
+                    <br>
                     <button type="submit" mat-raised-button color="accent" id="subButton" [disabled]="tituloFC.invalid || seccionFC.invalid">Aceptar</button>
                     <button type="button" (click)="back()" mat-raised-button color="primary">Cancelar</button>
                     <button type="button" (click)="delete()" *ngIf="seleccion != -2" mat-raised-button color="warn">Eliminar</button>

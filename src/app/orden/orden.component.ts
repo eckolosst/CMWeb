@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute} from '@angular/router';
 declare var $: any;
 import { Seccion } from '../models/seccion';
+import { UserService } from '../services/user.service'
 import { DataService } from '../services/data.service';
 import { SortablejsModule } from 'angular-sortablejs';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition, MatSnackBarConfig } from '@angular/material';
@@ -19,18 +20,21 @@ export class OrdenComponent implements OnInit{
     public titulo: String;
     public tituloFijo: String;
     public contenido: String;
+    public identity;
 
 
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
         public snackBar: MatSnackBar,
+        private _userService: UserService,
         private _dataService: DataService
     ){
         this.seleccion = -1;
     }
 
     ngOnInit():void{
+      this.identity = this._userService.getIdentity()
       this._dataService.getListaSecciones().subscribe(
           result =>{
               this.secciones = result.titulos;
@@ -51,7 +55,11 @@ export class OrdenComponent implements OnInit{
         let ver = 1;
         for(let i=0; i<this.seccionesNew.length;i++){
           if(this.secciones[i]._id != this.seccionesNew[i]._id){
-            this._dataService.editSeccion(this.seccionesNew[i]._id,{orden: i+1}).subscribe(
+            // Registra quien realizo el cambio
+            let user_mod = this.identity.apellido.toUpperCase()+" "+this.identity.nombre;
+            let fecha_mod = new Date().toString();
+
+            this._dataService.editSeccion(this.seccionesNew[i]._id,{orden: i+1, fecha_mod: fecha_mod, user_mod: user_mod}).subscribe(
                 result =>{
                     ver = ver * 1;
                 },

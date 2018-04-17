@@ -11,8 +11,6 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
   providers: [SimpleTimer, UserService]
 })
 export class AntipanicoComponent {
-  public lat;
-  public lng;
   public mlat;
   public mlng;
 
@@ -24,8 +22,8 @@ export class AntipanicoComponent {
   ) {
 
     this._route.params.subscribe(params => {
-      this.mlat = parseInt(params['lat']);
-      this.mlng = parseInt(params['lng']);
+      this.mlat = parseFloat(params['lat']);
+      this.mlng = parseFloat(params['lng']);
       });
   }
 

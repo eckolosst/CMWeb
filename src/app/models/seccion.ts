@@ -3,6 +3,8 @@ export class Seccion{
         public titulo: String,
         public contenido: String,
         public tituloBtn: String,
-        public orden: number
+        public orden: Number,
+        public fecha_mod: String, 
+        public user_mod: String
     ){}
 }

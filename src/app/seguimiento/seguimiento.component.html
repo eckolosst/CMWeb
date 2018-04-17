@@ -1,5 +1,5 @@
 <div *ngIf="conectado">
-  <div id="referencias" class="col-md-2 col-sm-12">
+  <div id="referencias" class="col-md-2 col-sm-12 hidden-xs hidden-sm">
     <div>
       <p class="text-center"><strong>Referencias</strong></p>
       <ul id="ref-list">
@@ -8,7 +8,15 @@
         <li><img src="{{destino.icon}}">Destino</li>
       </ul>
     </div>
-    <button type="button" (click)="delete()" class="btn btn-danger">Frenar Timer</button>
+  </div>
+  <div class="visible-xs visible-sm text-center">
+    <br>
+      <strong class="blanco">Referencias</strong>
+      <ul id="ref-list-xs">
+        <li><img src="{{origen.icon}}">Origen</li>
+        <li><img src="../../assets/seguimiento/zona.png">Zona Cercana</li>
+        <li><img src="{{destino.icon}}">Destino</li>
+      </ul>
   </div>
   <div class="col-md-10">
     <agm-map
@@ -29,6 +37,12 @@
           [markerDraggable]="destino.draggable"
           [iconUrl]="destino.icon">
       </agm-marker>
+
+      <agm-circle [latitude]="origen.lat" [longitude]="origen.lng"
+              [radius]="50"
+              [fillColor]="'#0a8b05'"
+              [editable]="false">
+      </agm-circle>
 
       <agm-circle [latitude]="destino.lat" [longitude]="destino.lng"
               [radius]="50"

@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import '~@angular/material/prebuilt-themes/purple-green.css';
+@font-face {
+font-family: Candara;
+src: url("assets/fuentes/candara.ttf");
+}
+@font-face {
+font-family: Candarab;
+src: url("assets/fuentes/candarab.ttf");
+}
 
 body, html{
     background-color: #303030 !important;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Candara' !important;
     color: white !important;
 }
 h3{
     font-size: 34px !important;
-    font-family: 'Open Sans', sans-serif !important;
+    font-family: 'Candara' !important;
 }
 #main-nav{
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
@@ -19,12 +27,15 @@ h3{
 }
 .icon-log{
     margin-right: 5px;
+    cursor: pointer;
 }
 .img-footer{
     float:right;
     padding: 6px;
     height: 100%;
-    cursor: pointer;
+}
+mat-toolbar img{
+  cursor: pointer;
 }
 .chip-name{
   cursor: pointer !important;
@@ -45,14 +56,10 @@ h3{
     font-style: oblique;
     line-height: initial;
 }
-@media only screen and (max-width : 600px) {
-  .mumala-title{
-    visibility: hidden;
-  }
-}
 .boton{
   margin-left: 25px !important;
 }
+
 /*-----------------------------------------------------------------------------*/
 /*                                    HOME                                     */
 /*-----------------------------------------------------------------------------*/
@@ -143,7 +150,7 @@ h3{
 .ql-toolbar.ql-snow {
     border: 1px solid #ccc;
     box-sizing: border-box;
-    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-family: 'Candara' !important;
     padding: 8px;
     background-color: white;
 }
@@ -227,6 +234,12 @@ mat-sidenav-content{
     text-decoration: underline;
     margin-left: -20px;
 }
+.margen{
+  margin-top: 10px;
+}
+.aclaracion{
+  cursor: pointer;
+}
 
 /*-----------------------------------------------------------------------------*/
 /*                                   INFO                                      */
@@ -240,10 +253,14 @@ mat-sidenav-content{
     padding: 20px;
 }
 .texto-info{
-    font-size: 14px;
+    font-size: 17px;
     text-align: justify;
     padding: 25px;
     /*background-color: #303030*/
+}
+mat-card-title{
+  font-family: 'Candara' !important;
+  font-size: 16px
 }
 
 /*-----------------------------------------------------------------------------*/

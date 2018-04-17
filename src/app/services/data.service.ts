@@ -54,6 +54,6 @@ export class DataService{
   }
   getInfo(){
     let headers = new Headers({"Content-Type":"application/json"});
-    return this._http.get(this.url+"/secciones",{headers: headers}).map(res => res.json());
+    return this._http.get(this.url+"/secciones/web",{headers: headers}).map(res => res.json());
   }
 }

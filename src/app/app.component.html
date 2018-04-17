@@ -1,18 +1,22 @@
 <div class="content">
     <mat-toolbar id="main-nav" color="primary">
-        <img class="img-footer" src="assets/mumala3.png" routerLink='/home'>
-        <span class="mumala-title">Mujeres de la Matria <br>Latinoamericana</span>
+        <img class="img-footer" src="assets/logo_cm.png" routerLink='/home'>
+        <img class="hidden-sm hidden-xs" src="assets/ciudad_mujer.png" routerLink='/home'>
+        <!-- <span class="mumala-title hidden-sm hidden-xs">Mujeres de la Matria <br>Latinoamericana</span> -->
         <span class="example-spacer"></span>
-        <button class="boton" mat-raised-button color="basic" routerLink='/info'>
-            <mat-icon class="icon-log">info</mat-icon><span class="hidden-sm hidden-xs">Informate</span>
+        <button class="boton hidden-xs" mat-raised-button color="basic" routerLink='/info'>
+            <mat-icon class="icon-log">info</mat-icon><span>Informate</span>
         </button>
-        <button class="boton" *ngIf="!identity" mat-raised-button color="basic" routerLink='/login'>
+        <div class="pull-right visible-xs">
+          <mat-icon id="info" class="icon-log boton" routerLink='/info'>info</mat-icon>
+          <span class="hidden-xs">Informate</span>
+        </div>
+        <button id="sesion" class="boton hidden-sm hidden-xs" *ngIf="!identity" mat-raised-button color="basic" routerLink='/login'>
             <mat-icon class="icon-log">account_circle</mat-icon>Iniciar Sesión
         </button>
-        <mat-chip-list *ngIf="identity" class="boton">
+        <mat-chip-list id="name-chip" *ngIf="identity" class="boton hidden-sm hidden-xs">
           <mat-chip class="chip-name">
             <span routerLink='/main'><b>Hola {{identity.nombre}}! </b></span>
-            <!-- <a routerLink='/main' style="text-decoration:none"><span>Hola {{identity.nombre}}! </span></a> -->
           </mat-chip>
           <button title="Cerrar Sesión" mat-icon-button (click)="logOut()"><span class="glyphicon glyphicon-remove-circle close-icon"> </span></button>
         </mat-chip-list>
