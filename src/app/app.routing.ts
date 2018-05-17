@@ -12,9 +12,7 @@ import { OrdenComponent } from './orden/orden.component';
 import { RegistroComponent } from './registro/registro.component';
 import { SeguimientoComponent } from './seguimiento/seguimiento.component';
 import { AntipanicoComponent } from './antipanico/antipanico.component';
-// import { ErrorComponent } from './error/error.component';
 
-//Definimos el arreglo qye relaciona el path con el componente que llama
 
 const appRoutes: Routes = [
    {path: '',component: HomeComponent},
@@ -27,8 +25,8 @@ const appRoutes: Routes = [
    {path: 'orden',component: OrdenComponent},
    {path: 'registro', component: RegistroComponent},
    {path: 'seguimiento/:id', component: SeguimientoComponent},
-   {path: 'antipanico/:lat/:lng', component: AntipanicoComponent}
-   // {path: '**',component: ErrorComponent}
+   {path: 'antipanico/:lat/:lng', component: AntipanicoComponent},
+   {path: '**', redirectTo: ''}
 ];
 
 export const appRoutingProviders: any[] = [];

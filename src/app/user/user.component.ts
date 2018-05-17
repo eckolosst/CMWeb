@@ -35,6 +35,10 @@ export class UserComponent {
     ) {}
 
     ngOnInit():void{
+      if(localStorage.getItem('identity')==null){
+        this._router.navigate(['/']);
+      }
+      else
         this.cargar();
     }
 

@@ -22,6 +22,9 @@ h3{
 #main-nav{
     box-shadow: 0 3px 5px -1px rgba(0,0,0,.2),0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12);
 }
+.mat-toolbar-row {
+    height: 80px !important;
+}
 .example-spacer {
     flex: 1 1 auto;
 }
@@ -140,6 +143,9 @@ mat-toolbar img{
 .main-list :hover{
   background-color: #303030
 }
+.main-page mat-card{
+  margin-bottom: 10px
+}
 /*-----------------------------------------------------------------------------*/
 /*                                  SECTIONS                                   */
 /*-----------------------------------------------------------------------------*/
@@ -245,22 +251,30 @@ mat-sidenav-content{
 /*                                   INFO                                      */
 /*-----------------------------------------------------------------------------*/
 .card-style{
-  /*min-height: 136px !important;*/
   margin: 10px;
 }
 .fondo-info{
-    background-color: #201f1f;
+    background-color: #947ab8;
     padding: 20px;
+    color: black;
 }
 .texto-info{
     font-size: 17px;
     text-align: justify;
     padding: 25px;
-    /*background-color: #303030*/
 }
 mat-card-title{
   font-family: 'Candara' !important;
   font-size: 16px
+}
+.info .mat-card:not([class*="mat-elevation-z"]){
+  background-color: #fbb65d;
+  padding: 20px;
+  color: black;
+}
+.info button{
+  background-color: #f37143 !important;
+  color: black !important;
 }
 
 /*-----------------------------------------------------------------------------*/

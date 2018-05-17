@@ -28,14 +28,19 @@ export class RegistroComponent implements OnInit{
     }
 
     ngOnInit():void{
-      this._dataService.getListaSecciones().subscribe(
+      if(localStorage.getItem('identity')==null){
+        this._router.navigate(['/']);
+      }
+      else{
+        this._dataService.getListaSecciones().subscribe(
           result =>{
-              this.secciones = result.titulos;
+            this.secciones = result.titulos;
           },
           error =>{
-              console.log(<any>error);
+            console.log(<any>error);
           }
-      );
+        );        
+      }
     }
 
     // Regresa

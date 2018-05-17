@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 declare var $: any;
 
@@ -7,13 +7,18 @@ declare var $: any;
    selector: 'main',
    templateUrl: 'main.template.html'
 })
-export class MainComponent{
+export class MainComponent implements OnInit{
     public menuPrincipal;
     constructor(
         private _route: ActivatedRoute,
         private _router: Router,
-    ){
+    ){}
+
+    ngOnInit(){
       this.menuPrincipal = true;
+      if(localStorage.getItem('identity')==null){
+        this._router.navigate(['/']);
+      }
     }
 
     in(option){

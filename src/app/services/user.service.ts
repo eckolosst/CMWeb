@@ -22,6 +22,7 @@ export class UserService {
     }
 
     singup(user_to_login, gettoken = null){
+      console.log("Coneccion: ",this._http)
         if(gettoken != null){
             user_to_login.gettoken = gettoken;
         }
@@ -59,6 +60,7 @@ export class UserService {
         }
         return this.token
     }
+
 
     getListaUsuarios(){
         let headers = new Headers({'Content-Type': 'application/json', 'Authorization': this.getTokem()});

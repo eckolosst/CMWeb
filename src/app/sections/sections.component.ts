@@ -41,8 +41,14 @@ export class SectionsComponent implements OnInit{
     }
 
     ngOnInit():void{
+      if(localStorage.getItem('identity')==null){
+        this._router.navigate(['/']);
+      }
+      else{
         this.identity = this._userService.getIdentity()
         this.cargar();
+      } 
+
     }
 
     // Busca en la BD los títulos de todas las secciones existentes, junto a sus ID, para llenar el listado

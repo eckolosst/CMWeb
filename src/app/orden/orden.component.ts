@@ -34,16 +34,21 @@ export class OrdenComponent implements OnInit{
     }
 
     ngOnInit():void{
-      this.identity = this._userService.getIdentity()
-      this._dataService.getListaSecciones().subscribe(
+      if(localStorage.getItem('identity')==null){
+        this._router.navigate(['/']);
+      }
+      else{
+        this.identity = this._userService.getIdentity()
+        this._dataService.getListaSecciones().subscribe(
           result =>{
-              this.secciones = result.titulos;
-              this.seccionesNew =this.secciones.slice();
+            this.secciones = result.titulos;
+            this.seccionesNew =this.secciones.slice();
           },
           error =>{
-              console.log(<any>error);
+            console.log(<any>error);
           }
-      );
+        );
+      }
     }
 
     // Regresa
